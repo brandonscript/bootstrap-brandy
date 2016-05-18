@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <title>{{title}}</title>
+  <meta name="viewport" content="width=device-width">
+  
+  <!-- Latest compiled and minified Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- code highlighting -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
+
+  <!-- Style Guide Boilerplate Styles -->
+  <link rel="stylesheet" href="css/styleguide.css">
+
+  <!-- Replace below stylesheet with your own stylesheet -->
+  <link rel="stylesheet" href="css/theme.css">
+
+  <link rel="stylesheet" href="https://api.brand.ai/styleguide/apigee/style/custom-fonts.css?key=SygBf9LAb" media="all">
+
+  <link rel="stylesheet" href="{{brandAi.googleFonts}}" media="all">
+
+  <link rel="stylesheet" href="css/syntax-highlighting/prism.base16-default.light.css">
+  <link rel="stylesheet" href="css/syntax-highlighting/prism.linenumbers.css">
+
+</head>
+<body data-spy="scroll" data-target=".navbar-default" data-offset="60" >
+
+  <!-- Navigation -->
+  <div id="top" class="sg-header sg-container navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><strong>Apigee</strong> Style</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown active">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jump to section: <b class="caret"></b></a>
+          <ul class="dropdown-menu scroll-menu sg-sect">
+            <li role="presentation" class="dropdown-header">Foundation</li>
+              <li><a href="#intro">Intro</a></li>
+              <li><a href="#colors">Colors</a></li>
+              <li><a href="#fonts">Font Families</a></li>
+            </li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation" class="dropdown-header">Elements</li>
+              {{#each elements}}
+                <li><a href="#{{title}}">{{title}}</a></li>
+              {{/each}}
+            <li role="presentation" class="divider"></li>
+            <li role="presentation" class="dropdown-header">Patterns</li>
+              {{#each patterns}}
+                <li><a href="#{{title}}">{{title}}</a></li>
+              {{/each}}
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Foundation -->
+  <div class="sg-body sg-container container">
+    <div class="row">
+    
+      <h1 class="page-header">Foundation</h1>
+    
+      <!-- Intro -->
+      <div class="col-lg-12 sg-section" id="intro">
+        <div class="sg-display">
+          <h2 class="sg-h2">Intro</h2>
+          {{{style.intro}}}
+          {{{components.back-to-top}}}
+        </div>
+      </div>
+    
+      <!-- Colors -->
+      <div class="col-lg-12 sg-section" id="colors">
+        <div class="sg-display">
+          <h2 class="sg-h2">Colors</h2>
+          {{#each brandAi.colorSections}}
+            <h4>{{this.name}}</h4>
+            {{#each this.colors}}
+              <div class="sg-color sg-color-{{nameToCSS this.name}}" style="background-color: {{this.value}}"><span class="sg-color-swatch"><span class="sg-animated">{{this.value}}</span></span></div>
+            {{/each}}
+          {{/each}}
+          {{{components.back-to-top}}}
+        </div>
+      </div>
+
+    </div> 
+
+    <!-- Font Families -->
+    <div class="col-lg-12 sg-section" id="fonts">
+      <div class="sg-display">
+        <h2 class="sg-h2">Font Families</h2>
+        {{#each brandAi.fonts}}
+          <h4>{{nameToCSS this.name}}</h4>
+          {{#each this.variants}}
+            <div class="sg-font sg-font-{{nameToCSS ../this.family}}-{{nameToCSS (fontVariantString this)}}" style="{{fontStyle ../this this}}">{{../this.family}} {{fontVariantString this}}</span></span></div>
+          {{/each}}
+        {{/each}}
+        {{{components.back-to-top}}}
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Elements -->
+  <div class="sg-body sg-container container">
+    <div class="row">
+
+      <h1 class="page-header">Elements</h1>
+
+      {{#each elements}}
+
+      <div class="col-lg-12 sg-markup sg-section" id="{{nameToCSS title}}">
+        <div class="sg-display">
+          <h2 class="sg-h2">{{title}}</h2>
+          {{#if usage}}
+            <div class="sg-doc">
+              <h3 class="sg-h3">Usage</h3>
+              {{{usage}}}
+            </div>
+          {{/if}}
+          <h3 class="sg-h3">Example</h3>
+          {{{content}}}
+          {{{components.back-to-top}}}
+          <div class="sg-source sg-animated">
+            {{{components.markup-controls}}}
+            <pre class="line-numbers"><code class="language-html">{{content}}</code></pre>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+
+    <div class="sg-pattern-styles">
+      <h1 class="sg-h1">Patterns<small> - Design and markup patterns unique to your site.</small></h1>
+      {{#each patterns}}
+      <div class="sg-markup sg-section">
+        <div class="sg-display">
+          <h2 class="sg-h2"><a id="sg-{{title}}" class="sg-anchor">{{title}}</a></h2>
+          {{#if usage}}
+          <div class="sg-doc">
+            <h3 class="sg-h3">Usage</h3>
+            {{{usage}}}
+          </div>
+          {{/if}}
+          <h3 class="sg-h3">Example</h3>
+          {{{content}}}
+        </div>
+        <div class="sg-markup-controls">
+          <a class="sg-btn sg-btn--source" href="#">View Source</a>
+          {{{components.back-to-top}}}
+        </div>
+        <div class="sg-source sg-animated">
+          <a class="sg-btn sg-btn--select" href="#">Copy Source</a>
+          <pre class="line-numbers"><code class="language-html">{{content}}</code></pre>
+        </div>
+      </div>
+      {{/each}}
+    </div><!--/.sg-pattern-styles-->
+  </div><!--/.sg-body-->
+
+  <!-- <script src="//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script> -->
+  <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/scrollspy.min.js"></script>
+  <script src="js/prism.js"></script>
+</body>
+</html>
