@@ -1,92 +1,63 @@
-Style-Guide-Boilerplate v2.6.0
+![Header Image](todo)
+A living Style Guide Toolkit for Bootstrap 3.
 ==============================
 
-A starting point for crafting living style guides.
+A living style guide toolkit for Bootstrap-based projects, built on Bootstrap 3, Node.js and Handlebars.
 
-This project is a port of https://github.com/kemie/Style-Guide-Boilerplate-Bootstrap-Edition, [Style-Guide-Boilerplate](https://github.com/bjankord/Style-Guide-Boilerplate) from PHP to nodejs. It utilizes nodejs with express and handlebars to render the page.
-
-[View Demo](http://brettjankord.com/projects/style-guide-boilerplate/)
-
-*Note: Sample patterns have been included in the demo. Your site will have it's own unique patterns.*
-
-![Screenshot](http://bjankord.github.io/Style-Guide-Boilerplate/assets/screenshot-1.jpg)
+Based on Brett Jankord's [Style Guide Boilerplate](http://brettjankord.com/projects/style-guide-boilerplate/), [Kemie's Bootstrap Fork](https://github.com/kemie/Style-Guide-Boilerplate-Bootstrap-Edition), and [Brad Mason's Node.js implementation](https://github.com/DeadlyBrad42/Style-Guide-Boilerplate-nodejs). I've elected _not_ to retain the forked dependency, in favor of retaining a fresh, clean repo.
 
 
-## Getting Started With Style Guide Boilerplate
+## Getting Started With Bootstra-based Style Guide
 
+### Download or clone the project
+You can clone, fork, or download the repo directly from GitHub.
 
-### Download the Style Guide Boilerplate
-You can clone, fork, or download the repo from GitHub.
-Once you have the files for **Style Guide Boilerplate**, you'll create a directory on your site for them.
-
-
-### Set up a directory on your site for the style guide
-I recommend creating a directory named `style-guide` in your site's root directory. I think it would be awesome if I could go to `anysite.com/style-guide/` and check out that site's style guide.
-
+### Set the title of your style guide
+Open `/style/title.html` and change the text to something like 'My Style Guide'
 
 ### Hook up your own CSS into the style guide
-In the `<head>` of **Style Guide Boilerplate** are custom styles for the boilerplate itself. These have all been prefixed with sg- so they hopefully shouldn't cause any conflicts with your website's own styles.
+Define your custom boostrap overrides (and custom styles) in `theme.css`. 
+    
+### Install Node.js
+The project is Node.js based, so you'll need to have Node.js installed. 
 
-Below the custom styles for the boilerplate, you will add in your own custom stylesheet(s) which you use on your live site.
-
-```html
-    <!-- Style Guide Boilerplate Styles -->
-    <link rel="stylesheet" href="css/sg-style.css">
-
-    <!-- Replace below stylesheet with your own stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
-```
+### Install dependencies from NPM
+`$ cd` to the project folder and type `$ npm install` to configure the Node.js dependencies.
 
 ### Start the server
-To start the server, go to the project's root directory and run `npm install` and then `node server.js`. The server should state the port that it's running on (8080 by default), and you can open [http://localhost:8080/](http://localhost:8080/) in a browser to view the style guide.
+Run `$ node server.js` to start the server, or use something like Nodejitsu's Forever to have it continually run. Changes to the file system will automatically be picked up each time you load the page.
 
+Browse to `http://localhost:8080` to see your custom style guide.
 
-### Review your live site CSS
-You should be able to go to `yoursite.com/style-guide/` and see how your live site's CSS affects base elements.
-The last step is creating your sites custom patterns/modules.
+### Folder structure
+The boilerplate comes with several out-of-the-box components. Simply add a new .html file to the directory to have it appear in the style guide:
 
+    - Elements are kept in `/markup/elements`. 
+    - Patterns (custom controls and objects you implement) are kept in `/markup/patterns`.
 
-### Create custom patterns
-To create custom patterns like buttons, breadcrumbs, alert messages, etc., create a new .html file and add your HTML markup into the file.
+### Custom usage documentation
+To add documentation for an element, create a new .html file with the applicable subfolder inside the `/usage` directory.
 
-Save the file as `pattern-name.html` into the `markup/patterns` directory inside of your `style-guide` directory.
+#### Brand.ai integration
+This project is designed to integrate with [Brand.ai](http://brand.ai). If you don't want to use Brand.ai, for the time being, you'll need to fork and remove those components from `server.js` until that feature has been modularized.
 
-You should now be able to see the new patterns at `yoursite.com/style-guide/`
+To set up your API connection, locate your API key at brand.ai (it's visible in the Connect > JSON section). Replace the empty `"url"` value in `/js/brandai.json` with `https://api.brand.ai/styleguide/{org}/{guide-name}?key={your-key}`.
 
-
-### Create personalized documentation
-To create personalized documentation for your markup examples, create a new .html file and name it whatever your markup snippet is named.
-
-Save the file as `markup-name.html` into the `doc/base` or `doc/patterns` directory inside of your `style-guide` directory.
-
-For example, if you want to create doc for `markup/patterns/breadcrumbs.html`, create a file called `breadcrumbs.html` and save it into `doc/patterns`.
-
-You should now be able to see the new doc at `yoursite.com/style-guide/`
-
-
-## Browser Support
-I've built **Style Guide Boilerplate** with progressive enhancement in mind to work on a wide range of browsers.
-
-Known supported browsers include:
-
-* Chrome
-* Firefox
-* Safari
-* Opera
-* IE6+
-* Stock Android Browser (4.0+)
-* Chrome for Android
-* Firefox for Android
-* Opera Mini
-* Opera Mobile
-* Safari for iOS
-* Chrome for iOS
-
-If you come across any bugs, or have any other issues with the boilerplate, please open an issue here on GitHub.
-
+## Licensing 
+**Bootstrap-based Style Guide** is licensed under the [MIT License](http://en.wikipedia.org/wiki/MIT_License)
 
 ## Additional Resources
+[Original Style Guide Boilerplate](http://brettjankord.com/projects/style-guide-boilerplate/)
+
+[Kemie's Bootstrap Fork](https://github.com/kemie/Style-Guide-Boilerplate-Bootstrap-Edition)
+
+[Brad Mason's Node.js implementation](https://github.com/DeadlyBrad42/Style-Guide-Boilerplate-nodejs)
+
+[Bootstrap documentation](http://getbootstrap.com/css/)
+
 [Front-end Style Guides](http://24ways.org/2011/front-end-style-guides/)
+
+[Creating Style guides](http://alistapart.com/article/creating-style-guides)
 
 [Front-end Style Guide Roundup](https://gimmebar.com/collection/4ecd439c2f0aaad734000022/front-end-styleguides)
 
@@ -98,30 +69,8 @@ If you come across any bugs, or have any other issues with the boilerplate, plea
 
 [Jeremy Keith's Pattern Primer](http://adactio.com/journal/5028/)
 
-[Paul Robert Llyod's Style Guide](http://www.paulrobertlloyd.com/about/styleguide/)
-
-[Pears](http://pea.rs/)
-
 [Starbucks Style Guide](http://www.starbucks.com/static/reference/styleguide/)
 
 
-## Credit
-Thanks to:
-
-Jeremy Keith for letting me build on top of [Pattern Primer](https://github.com/adactio/Pattern-Primer).
 
 
-## Contributing to this project
-
-Anyone and everyone is welcome to contribute. Please take a moment to
-review the [guidelines for contributing](CONTRIBUTING.md).
-
-* [Bug reports](CONTRIBUTING.md#bugs)
-* [Feature requests](CONTRIBUTING.md#features)
-* [Pull requests](CONTRIBUTING.md#pull-requests)
-
-
-## Licensing
-**Style Guide Boilerplate** is licensed under the [MIT License](http://en.wikipedia.org/wiki/MIT_License)
-
-Use it, build upon it, make awesome shit with it.
