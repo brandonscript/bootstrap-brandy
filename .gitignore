@@ -31,7 +31,7 @@ node_modules
 bower_components
 
 # Ignore changes to user-replaced stylesheet
-/css/theme.css
+css/theme.css
 
 # Ignore changes to Brand.ai API link
-# /js/brandai.js
+js/brandai.json
