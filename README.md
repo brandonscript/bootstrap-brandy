@@ -24,9 +24,9 @@ Define your custom boostrap overrides (and custom styles) in `theme.css`.
 The project is Node.js based, so you'll need to have [Node.js installed](https://nodejs.org/en/download/), then `$ cd` to the project folder and type `$ npm install` to configure the Node.js dependencies.
 
 ### 5. Start the server
-Run `$ node server.js` to start the server, or use something like Nodejitsu's Forever to have it continually run. Changes to the file system will automatically be picked up each time you load the page.
+This project is designed to use [Grunt](http://gruntjs.com) to live-reload the page each time you make a change to one of its components. Simply run `$ grunt` from the project directory to start the server. If you don't want to use Grunt, you can use [nodemon](http://nodemon.io) to have it continually run but without the live reload, or run it manually by running `$ node server.js`.
 
-Browse to `http://localhost:8080` to see your custom style guide.
+Browse to `http://localhost:8080` once the server is running.
 
 ### 6. Adding elements and patterns
 The boilerplate comes with several out-of-the-box components. Add a new .html file into one of these directories to have it appear in the style guide:
