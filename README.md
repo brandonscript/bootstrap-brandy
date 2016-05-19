@@ -11,7 +11,7 @@ Based on Brett Jankord's [Style Guide Boilerplate](http://brettjankord.com/proje
 
 ### 1. Download or clone the project
 
-	You can clone, fork, or download the repo directly from GitHub.
+You can clone, fork, or download the repo directly from GitHub.
 
 ### 2. Set the title of your style guide
 
@@ -42,7 +42,7 @@ To add documentation for an element, create a new .html file with the applicable
 ### 8. Brand.ai integration
 This project is designed to integrate with [Brand.ai](http://brand.ai). If you don't want to use Brand.ai, for the time being, you'll need to fork and remove those components from `server.js` until that feature has been modularized.
 
-To set up your API connection, locate your API key at brand.ai (it's visible in the Connect > JSON section). Replace the empty `"url"` value in `/js/brandai.json` with `https://api.brand.ai/styleguide/{org}/{guide-name}?key={your-key}`.
+To set up your API connection, locate your API key at brand.ai (it's visible in the Connect > JSON section). Replace the empty `"url"` value in `/config/brandai.json` with `https://api.brand.ai/styleguide/{org}/{guide-name}?key={your-key}`.
 
 ## Licensing 
 **Bootstrap-based Style Guide** is licensed under the [MIT License](http://en.wikipedia.org/wiki/MIT_License)
