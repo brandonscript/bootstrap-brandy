@@ -11,7 +11,7 @@
         helpers = require('./js/helpers'),
         path = require('path'),
         tryit = require('tryit'),
-        brandAiUrl = require('js/brandai.json').url,
+        brandAiUrl = require('./config/brandai.json').url,
         _ = require('lodash')
 
     // Helpers
@@ -27,14 +27,12 @@
             var baseTemplate = fs.readFileSync('index.html', 'utf8'),
                 pageBuilder = handlebars.compile(baseTemplate),
                 markupDirectory = 'markup',
-                componentsPath = path.join(markupDirectory, 'components'),
+                examplesOverrideDirectory = 'examples',
+                componentsPath = 'components',
                 usageDirectory = 'usage',
                 fileDirectories = ['elements', 'patterns']
 
             var template = {
-                style: {
-                    intro: fs.readFileSync(path.join(markupDirectory, 'style', 'intro.html'))
-                },
                 brandAi: _.merge(brandAi.result, {
                     googleFonts: helpers.buildGoogleFontsLink(brandAi.result)
                 }),
@@ -54,7 +52,9 @@
                         title: path.basename(file, '.html'),
                         type: dir,
                         fileName: file,
-                        content: fs.readFileSync(path.join(markupDirectory, dir, file)),
+                        content: tryit(function() {
+                            return fs.readFileSync(path.join(examplesOverrideDirectory, dir, file))
+                        }) || fs.readFileSync(path.join(markupDirectory, dir, file)),
                         usage: tryit(function() {
                             return fs.readFileSync(path.join(usageDirectory, dir, file))
                         }) || ""

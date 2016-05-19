@@ -15,7 +15,7 @@ You can clone, fork, or download the repo directly from GitHub.
 
 ### 2. Set the title of your style guide
 
-Open `/style/title.html` and change the text to something like 'My Style Guide'
+Open `/components/title.html` and change the title tag's text.
 
 ### 3. Add your own CSS into the style guide
 Define your custom boostrap overrides (and custom styles) in `theme.css`. 
