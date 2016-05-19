@@ -44,7 +44,15 @@ module.exports = {
             }
             return fontString
         })
+    },
+    rgbToHex(r, g, b) {
+        return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
     }
+}
+
+function componentToHex(c) {
+    var hex = parseInt(c).toString(16);
+    return hex.length === 1 ? "0" + hex : hex;
 }
 
 function styleFromCode(style) {

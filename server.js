@@ -64,6 +64,12 @@ app.get('/', function(req, res) {
                 googleFonts: helpers.buildGoogleFontsLink(brandAi.result)
             })
         })
+        template.brandAi.colorSections.forEach(function(section) {
+            section.colors.map(function(color) {
+                color.value = helpers.rgbToHex.apply(this, color.value.match(/(\d+)/g))
+                return color
+            })
+        })
         res.status(200).send(pageBuilder(template))
     })
 })
