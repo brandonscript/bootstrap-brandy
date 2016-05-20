@@ -1,20 +1,36 @@
 var files = [
-    'markup/*',
-    'usage/*',
-    'examples/*',
-    'components/*',
-    'css/**/*',
-    'js/**/*',
-    'images/**/*'
+    '**/*.html',
+    'css/syntax-highlighting/*.css',
+    'css/fonts/*',
+    'scss/**/*.scss',
+    'js/*.js',
+    'images/*'
 ]
 
 module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt)
     grunt.initConfig({
-        express: {
+        copy: {
+            bootstrap: {
+                expand: true,
+                flatten: true,
+                src: 'node_modules/bootstrap-sass/assets/fonts/bootstrap/*',
+                dest: 'css/fonts/bootstrap'
+            }
+        },
+        sass: {
             options: {
-                port: 8080
+                style: 'expanded'
             },
+            dist: {
+                files: {
+                    'css/framework/scaffolding.css': 'scss/framework/scaffolding.scss',
+                    'css/framework/extensions.css': 'scss/framework/extensions.scss',
+                    'css/style.css': 'scss/style.scss'
+                }
+            }
+        },
+        express: {
             dev: {
                 options: {
                     port: 8080,
@@ -25,16 +41,23 @@ module.exports = function(grunt) {
         },
         watch: {
             options: {
-                livereload: true
+                livereload: true,
+                debounceDelay: 50
             },
             express: {
                 files: files,
-                tasks: ['express:dev'],
+                tasks: ['sass', 'express'],
                 options: {
                     spawn: false
                 }
             },
+            configFiles: {
+                files: ['Gruntfile.js', 'config/*.json', 'server.js'],
+                options: {
+                    reload: true
+                }
+            }
         },
     })
-    grunt.registerTask('default', ['express:dev', 'watch'])
+    grunt.registerTask('default', ['copy:bootstrap', 'sass', 'express:dev', 'watch'])
 }

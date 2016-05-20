@@ -1,5 +1,6 @@
 'use strict'
 var http = require('http'),
+    util = require('util'),
     exec = require('sync-exec'),
     fs = require('fs'),
     handlebars = require('handlebars'),
@@ -9,7 +10,7 @@ var http = require('http'),
     helpers = require('./js/helpers'),
     path = require('path'),
     tryit = require('tryit'),
-    brandAiUrl = require('./config/brandai.json').url,
+    brandAiConfig = require('./config/brandai.json'),
     _ = require('lodash')
 
 // Helpers
@@ -56,12 +57,13 @@ fileDirectories.forEach(function(dir) {
 // Index
 app.get('/', function(req, res) {
     request.get({
-        url: brandAiUrl,
+        url: util.format("https://api.brand.ai/styleguide/%s/%s?key=%s", brandAiConfig.org, brandAiConfig.name, brandAiConfig.key),
         json: true
     }, function(err, response, brandAi) {
         _.merge(template, {
             brandAi: _.merge(brandAi.result, {
-                googleFonts: helpers.buildGoogleFontsLink(brandAi.result)
+                googleFonts: helpers.buildGoogleFontsLink(brandAi.result),
+                customFonts: util.format("https://api.brand.ai/styleguide/%s/%s/custom-fonts.css?key=%s", brandAiConfig.org, brandAiConfig.name, brandAiConfig.key)
             })
         })
         template.brandAi.colorSections.forEach(function(section) {

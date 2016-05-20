@@ -8,6 +8,8 @@
 *.swp
 *.zip
 *.vi
+*.sass-cache
+*.css.map
 *~
 
 # OS or Editor folders
@@ -30,5 +32,8 @@ nbproject
 node_modules
 bower_components
 
-# Ignore changes to user-replaced stylesheet
-css/theme.css
+# Ignore changes to user-replaced stylesheet and compiled elements
+css/fonts/bootstrap/*
+css/framework/*
+css/style.css
+scss/style.scss
