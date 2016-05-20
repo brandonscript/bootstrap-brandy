@@ -1,18 +1,16 @@
-$apigee-orange: #FC4C02;
-
 /* Outline Buttons */
 .btn-outline {
-    background-color: transparent;
+    background-color: transparent !important;
     color: inherit;
     transition: all .5s;
 }
 
 .btn-primary.btn-outline {
-    color: #428bca;
+    color: #337ab7;
 }
 
 .btn-success.btn-outline {
-    color: $apigee-orange;
+    color: #5cb85c;
 }
 
 .btn-info.btn-outline {
