@@ -1,9 +1,11 @@
 var util = require('util'),
+    fs = require('fs'),
     querystring = require("querystring")
+
+require('rootpath')()
 
 module.exports = {
     buildGoogleFontsLink: function(brandAi) {
-
         var url = "https://fonts.googleapis.com/css?family="
         url += brandAi.fonts.filter(function(font) {
             return font.source === 'google'
@@ -25,6 +27,14 @@ module.exports = {
                 italic: variant.split('')[0] === 'i',
                 weight: parseInt(variant.split('')[1]) * 100
             }
+        }
+    },
+    tryLoadFile: function(path) {
+        try {
+            var content = fs.readFileSync(path)
+            return content
+        } catch (e) {
+            return ""
         }
     },
     extendHandlebars: function(handlebars) {

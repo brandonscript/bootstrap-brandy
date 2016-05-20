@@ -81,7 +81,7 @@
           {{#each brandAi.colorSections}}
             <h4>{{this.name}}</h4>
             {{#each this.colors}}
-              <div class="sg-color sg-color-{{nameToCSS this.name}}" style="background-color: {{this.value}}"><span class="sg-color-swatch"><span class="sg-animated">{{this.value}}</span></span></div>
+              <div class="sg-color-swatch sg-color-{{nameToCSS this.name}}" style="background-color: {{this.value}}"><span class="sg-color-swatch"><span class="sg-animated">{{this.value}}</span></span></div>
             {{/each}}
           {{/each}}
           {{{components.back-to-top}}}
@@ -124,11 +124,19 @@
             </div>
           {{/if}}
           <h3 class="sg-h3">Example</h3>
-          {{{content}}}
+          {{{example}}}
           {{{components.back-to-top}}}
           <div class="sg-source sg-animated">
             {{{components.markup-controls}}}
-            <pre class="line-numbers"><code class="language-html">{{content}}</code></pre>
+            <pre class="line-numbers">
+              <code class="language-html">
+              {{#if example}}
+                {{example}}
+              {{else}}
+                {{content}}
+              {{/if}}
+              </code>
+            </pre>
           </div>
         </div>
       </div>
@@ -156,7 +164,15 @@
         </div>
         <div class="sg-source sg-animated">
           <a class="sg-btn sg-btn--select" href="#">Copy Source</a>
-          <pre class="line-numbers"><code class="language-html">{{content}}</code></pre>
+          <pre class="line-numbers">
+            <code class="language-html">
+            {{#if example}}
+              {{example}}
+            {{else}}
+              {{content}}
+            {{/if}}
+            </code>
+          </pre>
         </div>
       </div>
       {{/each}}

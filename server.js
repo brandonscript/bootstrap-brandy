@@ -9,7 +9,6 @@ var http = require('http'),
     request = require('request'),
     helpers = require('./js/helpers'),
     path = require('path'),
-    tryit = require('tryit'),
     brandAiConfig = require('./config/brandai.json'),
     _ = require('lodash')
 
@@ -20,9 +19,9 @@ helpers.extendHandlebars(handlebars)
 var template = {},
     baseTemplate = fs.readFileSync('index.html', 'utf8'),
     pageBuilder = handlebars.compile(baseTemplate),
-    markupDirectory = 'markup',
-    examplesOverrideDirectory = 'examples',
     componentsPath = 'components',
+    markupDirectory = 'markup',
+    examplesDirectory = 'examples',
     usageDirectory = 'usage',
     fileDirectories = ['elements', 'patterns']
 
@@ -43,12 +42,9 @@ fileDirectories.forEach(function(dir) {
             title: path.basename(file, '.html'),
             type: dir,
             fileName: file,
-            content: tryit(function() {
-                return fs.readFileSync(path.join(examplesOverrideDirectory, dir, file))
-            }) || fs.readFileSync(path.join(markupDirectory, dir, file)),
-            usage: tryit(function() {
-                return fs.readFileSync(path.join(usageDirectory, dir, file))
-            }) || ""
+            content: fs.readFileSync(path.join(markupDirectory, dir, file)),
+            example: helpers.tryLoadFile(path.join(examplesDirectory, dir, file)),
+            usage: helpers.tryLoadFile(path.join(usageDirectory, dir, file))
         }
         template[dir].push(comp)
     })

@@ -1,12 +1,3 @@
-var files = [
-    '**/*.html',
-    'css/syntax-highlighting/*.css',
-    'css/fonts/*',
-    'scss/**/*.scss',
-    'js/*.js',
-    'images/*'
-]
-
 module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt)
     grunt.initConfig({
@@ -45,16 +36,24 @@ module.exports = function(grunt) {
                 debounceDelay: 50
             },
             express: {
-                files: files,
+                files: [
+                    '**/*.html',
+                    'css/syntax-highlighting/*.css',
+                    'css/fonts/*',
+                    'scss/**/*.scss',
+                    'js/*.js',
+                    'images/*'
+                ],
                 tasks: ['sass', 'express'],
                 options: {
                     spawn: false
                 }
             },
             configFiles: {
-                files: ['Gruntfile.js', 'config/*.json', 'server.js'],
+                files: ['Gruntfile.js', 'config/*.json', 'server.js', 'js/*.js'],
+                tasks: ['express'],
                 options: {
-                    reload: true
+                    spawn: false
                 }
             }
         },

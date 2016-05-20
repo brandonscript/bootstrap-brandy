@@ -6,7 +6,6 @@
  License: MIT
 
 ---------------------------------------------------------------------------- */
-
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 /* -------------------------------------------------------------------------
@@ -16,10 +15,10 @@ body {
   margin: 0;
   padding-top: 50px;
 }
+
 /* -------------------------------------------------------------------------
  Utility Classes
 ---------------------------------------------------------------------------- */
-
 .sg-animated {
   -webkit-transition: all 0.6s ease-out;
   -moz-transition: all 0.6s ease-out;
@@ -27,14 +26,14 @@ body {
   -o-transition: all 0.6s ease-out;
   transition: all 0.6s ease-out;
 }
+
 /* -------------------------------------------------------------------------
  Modules
 ---------------------------------------------------------------------------- */
+
 /* Headings
 ---------------------------------------------------------------------------- */
-.sg-h1,
-.sg-h2,
-.sg-h3 {
+.sg-h1, .sg-h2, .sg-h3 {
   border-bottom: 1px solid #ddd;
   font-weight: normal;
   margin-bottom: 1em;
@@ -64,11 +63,12 @@ body {
 .row > .page-header {
   padding-top: 2em;
 }
+
 /* Buttons
 ---------------------------------------------------------------------------- */
 .sg-btn {
   float: left;
-  text-shadow: none!important;
+  text-shadow: none !important;
 }
 .sg-btn--top {
   float: right;
@@ -117,25 +117,26 @@ ul.scroll-menu {
   position: absolute;
   z-index: 99;
 }
+
 /* Hide specific buttons for use with JS */
 .sg-btn--source {
   clear: both;
 }
+
 /* Show specific buttons if JS enabled */
-.js .sg-btn--source,
-.js .sg-btn--select {
+.js .sg-btn--source, .js .sg-btn--select {
   display: block;
 }
+
 /* Hide specific buttons conditionally */
-.operamini .sg-btn--source,
-.legacy .sg-btn--source {
+.operamini .sg-btn--source, .legacy .sg-btn--source {
   display: none;
 }
+
 /* Sections
 ---------------------------------------------------------------------------- */
 .sg-section {
-  margin-bottom: 32px;
-  /* For older browsers */
+  margin-bottom: 32px;  /* For older browsers */
   margin-bottom: 3rem;
   overflow: hidden;
 }
@@ -143,6 +144,7 @@ ul.scroll-menu {
   display: block;
   padding-top: 1em;
 }
+
 /* Colors
 ---------------------------------------------------------------------------- */
 .sg-color {
@@ -163,7 +165,13 @@ ul.scroll-menu {
   display: block;
   height: 100%;
   width: 100%;
+  float: left;
+  width: 80px;
+  height: 80px;
+  margin: 0 5px;
+  border-radius: 3px;
 }
+
 .sg-color-swatch span {
   background: #000;
   background: rgba(0, 0, 0, 0.7);
@@ -184,6 +192,7 @@ ul.scroll-menu {
 .sg-color-swatch:hover span {
   opacity: 1;
 }
+
 /* -------------------------------------------------------------------------
  Colors
 ---------------------------------------------------------------------------- */
@@ -217,6 +226,7 @@ ul.scroll-menu {
 .sg-brand-danger .sg-color-swatch {
   background: #d9831f;
 }
+
 /* Fonts
 ---------------------------------------------------------------------------- */
 .sg-font {
@@ -229,6 +239,7 @@ ul.scroll-menu {
 .sg-font-secondary {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
+
 /* Grid
 ---------------------------------------------------------------------------- */
 .show-grid {
@@ -239,6 +250,7 @@ ul.scroll-menu {
   border: 1px solid #808080;
   padding: 0.5em;
 }
+
 /* Markup
 ---------------------------------------------------------------------------- */
 .sg-markup-controls {
@@ -264,64 +276,74 @@ ul.scroll-menu {
   max-height: 0;
   overflow: hidden;
 }
-.js .sg-source.is-active,
-.operamini .sg-source,
-.legacy .sg-source {
+.js .sg-source.is-active, .operamini .sg-source, .legacy .sg-source {
   max-height: 2400px;
 }
+
 /* -------------------------------------------------------------------------
  Prettyprint
 ---------------------------------------------------------------------------- */
 .pln {
   color: #ffffff;
 }
+
 /* plain text */
 @media screen {
-  .str,
-  .string {
+  .str, .string {
     color: #E6DB74;
   }
+
   /* string content */
-  .kwd,
-  .keyword {
+  .kwd, .keyword {
     color: #66D9EF;
   }
+
   /* a keyword */
-  .com,
-  .comment {
+  .com, .comment {
     color: #75715E;
   }
+
   /* a comment */
   .typ {
     color: #A6E22E;
   }
+
   /* a type name */
-  .lit,
-  .number {
+  .lit, .number {
     color: #AE81FF;
   }
+
   /* a literal value */
+
   /* punctuation, lisp open bracket, lisp close bracket */
+
   /* .pun, .opn, .clo { color: #660 } */
   .tag {
     color: #F92672;
   }
+
   /* a markup tag name */
   .atn {
     color: #A6E22E;
   }
+
   /* a markup attribute name */
   .atv {
     color: #E6DB74;
   }
+
   /* a markup attribute value */
+
   /*.dec, .var { color: #606 }*/
+
   /* a declaration; a variable name */
   .fun {
     color: #FF0000;
   }
+
   /* a function name */
 }
+
 /* Use higher contrast and text-weight for printable form. */
 @media print, projection {
   .str {
@@ -342,9 +364,7 @@ ul.scroll-menu {
   .lit {
     color: #004444;
   }
-  .pun,
-  .opn,
-  .clo {
+  .pun, .opn, .clo {
     color: #444400;
   }
   .tag {
@@ -358,11 +378,11 @@ ul.scroll-menu {
     color: #006600;
   }
 }
+
 /* Specify class=linenums on a pre to get line numbering */
 ol.linenums {
   border-left: 1px solid #444;
-  margin: 0 0 0 3.3em;
-  /* IE indents via margin-left */
+  margin: 0 0 0 3.3em;  /* IE indents via margin-left */
   padding: 0;
 }
 ol.linenums li {
@@ -370,9 +390,11 @@ ol.linenums li {
   line-height: 1.5;
   padding-left: .8em;
 }
+
 /* -------------------------------------------------------------------------
  Legacy IE
 ---------------------------------------------------------------------------- */
+
 /**
  * IE 7 Fixes
  */
@@ -380,7 +402,9 @@ ol.linenums li {
   *display: inline;
   zoom: 1;
 }
+
 /* End IE 7 Fixes */
+
 /**
  * IE 6 Fixes
  */
@@ -389,4 +413,5 @@ pre {
   _white-space: pre-wrap;
   _word-wrap: break-word;
 }
+
 /* End IE 6 Fixes */
