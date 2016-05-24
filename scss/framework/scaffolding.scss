@@ -9,11 +9,48 @@
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 /* -------------------------------------------------------------------------
+ Fonts
+---------------------------------------------------------------------------- */
+
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
+span, p {
+  font-size: 14px;
+}
+
+body {
+  font-family: Lato, 'Open Sans', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+code *, pre * {
+  font-size: 13px !important;
+  font-family: 'Oxygen Mono', Menlo, Bitstream Vera Sans Mono, DejaVu Sans Mono, Monaco, Consolas, monospace !important;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+/* -------------------------------------------------------------------------
  Layout
 ---------------------------------------------------------------------------- */
-body {
-  margin: 0;
-  padding-top: 50px;
+.gutter-32 > [class*='col-'] {
+  padding-right: 16px;
+  padding-left: 16px;
+  padding-bottom: 32px;
+}
+
+.container {
+  padding-left:30px;
+  padding-right:30px;
+}
+
+.row-spacing {
+  margin-bottom: 15px;
+}
+
+pre {
+    border: 1px solid #e1e1e8;
 }
 
 /* -------------------------------------------------------------------------
@@ -147,97 +184,41 @@ ul.scroll-menu {
 
 /* Colors
 ---------------------------------------------------------------------------- */
-.sg-color {
-  background: #fff;
-  border: 1px solid #b3b3b3;
-  display: inline-block;
-  height: 80px;
-  margin: 0 .5em .5em 0;
-  padding: 5px;
-  position: relative;
-  width: 100px;
-}
-.sg-lg {
-  width: 140px;
-  height: 100px;
-}
+
 .sg-color-swatch {
   display: block;
-  height: 100%;
-  width: 100%;
   float: left;
-  width: 80px;
-  height: 80px;
-  margin: 0 5px;
+  height: 160px;
+  // margin: 0 20px 30px 0;
+  width: 100%;
   border-radius: 3px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 5px solid #fff;
+  position: relative;
+  box-shadow: 0 0 0 1px #F5F5F5;
 }
 
-.sg-color-swatch span {
-  background: #000;
-  background: rgba(0, 0, 0, 0.7);
-  bottom: 5px;
-  color: #fff;
+.sg-color-swatch div {
+  background: #fff;
+  bottom: 0;
+  color: #414141;
   font-size: .8em;
-  margin: 0;
-  opacity: 0;
-  padding: 5px 0;
+  padding: 10px 0 5px;
   position: absolute;
   text-align: center;
-  text-transform: uppercase;
-  width: 88px;
+  width: 100%;
+  display: inline-block;
 }
-.sg-lg .sg-color-swatch span {
-  width: 128px;
+
+.sg-color-name {
+  font-weight: bold;
+  display: block;
 }
+
 .sg-color-swatch:hover span {
   opacity: 1;
-}
-
-/* -------------------------------------------------------------------------
- Colors
----------------------------------------------------------------------------- */
-.sg-brand-primary .sg-color-swatch {
-  background: #bbbbbb;
-}
-.sg-gray-lighter .sg-color-swatch {
-  background: #dddddd;
-}
-.sg-gray-light .sg-color-swatch {
-  background: #808080;
-}
-.sg-gray .sg-color-swatch {
-  background: #555555;
-}
-.sg-gray-dark .sg-color-swatch {
-  background: #333333;
-}
-.sg-gray-darker .sg-color-swatch {
-  background: #222222;
-}
-.sg-brand-success .sg-color-swatch {
-  background: #469408;
-}
-.sg-brand-info .sg-color-swatch {
-  background: #029acf;
-}
-.sg-brand-warning .sg-color-swatch {
-  background: #9b479f;
-}
-.sg-brand-danger .sg-color-swatch {
-  background: #d9831f;
-}
-
-/* Fonts
----------------------------------------------------------------------------- */
-.sg-font {
-  font-size: 1.8em;
-  padding: 0 0 .2em 0;
-}
-.sg-font-primary {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-.sg-font-secondary {
-  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 /* Grid

@@ -1,34 +1,99 @@
-/* Outline Buttons */
+/* Boostrap Outline Buttons */
 .btn-outline {
     background-color: transparent !important;
     color: inherit;
     transition: all .5s;
 }
-
 .btn-primary.btn-outline {
     color: #337ab7;
 }
-
 .btn-success.btn-outline {
     color: #5cb85c;
 }
-
 .btn-info.btn-outline {
     color: #5bc0de;
 }
-
 .btn-warning.btn-outline {
     color: #f0ad4e;
 }
-
 .btn-danger.btn-outline {
     color: #d9534f;
 }
-
-.btn-primary.btn-outline:hover,
-.btn-success.btn-outline:hover,
-.btn-info.btn-outline:hover,
-.btn-warning.btn-outline:hover,
+.btn-primary.btn-outline:hover, 
+.btn-success.btn-outline:hover, 
+.btn-info.btn-outline:hover, 
+.btn-warning.btn-outline:hover, 
 .btn-danger.btn-outline:hover {
     color: #fff;
 }
+
+/* Prism line Numbers */
+// pre.line-numbers {
+//     position: relative;
+//     padding-left: 3.8em !important;
+//     counter-reset: linenumber;
+// }
+
+// pre.line-numbers > code {
+//     position: relative;
+// }
+
+// .line-numbers .line-numbers-rows {
+//     position: absolute;
+//     pointer-events: none;
+//     top: 0;
+//     left: -3.8em;
+//     width: 3em; /* works for line-numbers below 1000 lines */
+//     letter-spacing: -1px;
+//     border-right: 1px solid #E6E6E6;
+//     -webkit-user-select: none;
+//     -moz-user-select: none;
+//     -ms-user-select: none;
+//     user-select: none;
+
+// }
+
+// .line-numbers-rows > span {
+//     pointer-events: none;
+//     display: block;
+//     counter-increment: linenumber;
+// }
+
+// .line-numbers-rows > span:before {
+//     content: counter(linenumber);
+//     color: #999;
+//     display: block;
+//     padding-right: 0.8em;
+//     text-align: right;
+//     font-size: 84% !important;    
+// }
+
+// .hljs-line-numbers {
+//     text-align: right;
+//     border-right: 1px solid #ccc;
+//     color: #999;
+//     -webkit-touch-callout: none;
+//     -webkit-user-select: none;
+//     -khtml-user-select: none;
+//     -moz-user-select: none;
+//     -ms-user-select: none;
+//     user-select: none;
+//     font-size: 84%;
+// }
+
+// ol.linenums{
+//     counter-reset:linenumber;
+// }
+// ol.linenums li{
+//     list-style-type:none;
+//     counter-increment:linenumber;
+// }
+// ol.linenums li:before{
+//     content: counter(linenumber);
+//     float:left;
+//     margin-left:-3.5em;
+//     text-align:right;
+//     width:1.5em;
+//     font-size: 80% !important;
+//     line-height: 200%;
+// }

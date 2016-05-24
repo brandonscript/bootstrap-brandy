@@ -20,11 +20,13 @@
   <link rel="stylesheet" href="{{brandAi.googleFonts}}" media="all">
   <link rel="stylesheet" href="{{brandAi.customFonts}}" media="all">
 
-  <link rel="stylesheet" href="css/syntax-highlighting/prism.base16-default.light.css">
-  <link rel="stylesheet" href="css/syntax-highlighting/prism.linenumbers.css">
+  <link rel="stylesheet" href="css/syntax-highlighting/prettify-theme.css">
+  <!-- <link rel="stylesheet" href="css/syntax-highlighting/highlightjs.custom.css"> -->
+  <!-- <link rel="stylesheet" href="css/syntax-highlighting/prism.base16-custom.light.css"> -->
+  
 
 </head>
-<body data-spy="scroll" data-target=".navbar-default" data-offset="60" >
+<body data-spy="scroll" data-target=".navbar-default" data-offset="60" onload="prettyPrint()">
 
   <!-- Navigation -->
   <div id="top" class="sg-header sg-container navbar navbar-default navbar-fixed-top" role="navigation">
@@ -60,34 +62,37 @@
   </div>
 
   <!-- Foundation -->
-  <div class="sg-body sg-container container">
+  <div class="container">
     <div class="row">
-    
       <h1 class="page-header">Foundation</h1>
     
       <!-- Intro -->
-      <div class="col-lg-12 sg-section" id="intro">
-        <div class="sg-display">
-          <h2 class="sg-h2">Intro</h2>
-          {{{components.intro}}}
-          {{{components.back-to-top}}}
-        </div>
+      <div class="row" id="intro">
+        <h2 class="sg-h2">Intro</h2>
+        {{{components.intro}}}
+        {{{components.back-to-top}}}
       </div>
     
       <!-- Colors -->
-      <div class="col-lg-12 sg-section" id="colors">
-        <div class="sg-display">
-          <h2 class="sg-h2">Colors</h2>
-          {{#each brandAi.colorSections}}
-            <h4>{{this.name}}</h4>
+      <div class="row" id="colors">
+        <h2 class="sg-h2">Colors</h2>
+        {{#each brandAi.colorSections}}
+          <h4>{{this.name}}</h4>
+          <div class="row gutter-32">
             {{#each this.colors}}
-              <div class="sg-color-swatch sg-color-{{nameToCSS this.name}}" style="background-color: {{this.value}}"><span class="sg-color-swatch"><span class="sg-animated">{{this.value}}</span></span></div>
+              <div class="col-md-2">
+                <div class="sg-color-swatch sg-color-{{nameToCSS this.name}}" style="background-color: {{this.value}}">
+                  <div class="bottom-align-text">
+                    <span class="sg-color-name">${{nameToCSS this.name}}</span>
+                    <span class="sg-color-code">{{this.value}}</span>
+                  </div>
+                </div>                  
+              </div>
             {{/each}}
-          {{/each}}
-          {{{components.back-to-top}}}
-        </div>
+          </div>
+        {{/each}}
+        {{{components.back-to-top}}}
       </div>
-
     </div> 
 
     <!-- Font Families -->
@@ -107,38 +112,24 @@
   </div>
 
   <!-- Elements -->
-  <div class="sg-body sg-container container">
+  <div class="container">
     <div class="row">
-
       <h1 class="page-header">Elements</h1>
-
       {{#each elements}}
-
-      <div class="col-lg-12 sg-markup sg-section" id="{{nameToCSS title}}">
-        <div class="sg-display">
-          <h2 class="sg-h2">{{title}}</h2>
-          {{#if usage}}
-            <div class="sg-doc">
-              <h3 class="sg-h3">Usage</h3>
-              {{{usage}}}
-            </div>
-          {{/if}}
-          <h3 class="sg-h3">Example</h3>
-          {{{content}}}
-          {{{components.back-to-top}}}
-          <div class="sg-source sg-animated">
-            {{{components.markup-controls}}}
-            <pre class="line-numbers">
-              <code class="language-html">
-              {{#if example}}
-                {{example}}
-              {{else}}
-                {{content}}
-              {{/if}}
-              </code>
-            </pre>
+      <div class="col-md-12 row-spacing" id="{{nameToCSS title}}">
+        <h2 class="sg-h2">{{title}}</h2>
+        {{#if usage}}
+          <div class="sg-doc">
+            {{{usage}}}
           </div>
-        </div>
+        {{/if}}
+        {{{content}}}
+        {{{components.back-to-top}}}
+      </div>
+      <div class="col-md-12">
+        <h3 class="sg-h3">Example</h3>
+        {{{components.markup-controls}}}
+        <pre class="prettyprint"><code class="language-html">{{#if example}}{{example}}{{else}}{{content}}{{/if}}</code></pre>
       </div>
       {{/each}}
     </div>
@@ -159,13 +150,12 @@
           {{{content}}}
         </div>
         <div class="sg-markup-controls">
-          <a class="sg-btn sg-btn--source" href="#">View Source</a>
           {{{components.back-to-top}}} 
         </div>
         <div class="sg-source sg-animated">
           <a class="sg-btn sg-btn--select" href="#">Copy Source</a>
-          <pre class="line-numbers">
-            <code class="language-html">
+          <pre class="prettyprint lang-html">
+            <code>
             {{#if example}}
               {{example}}
             {{else}}
@@ -182,7 +172,12 @@
   <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/scrollspy.min.js"></script>
-  <script src="js/prism.js"></script>
+  <!-- <script src="js/prism.js"></script> -->
+  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script> -->
+  <!-- <script src="js/highlightjs-line-numbers.min.js"></script> -->
+  <!-- <script>hljs.initHighlightingOnLoad(); hljs.initLineNumbersOnLoad();</script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
+
   <!-- livereload script -->
   <script type="text/javascript">
     document.write('<script src="http://'
