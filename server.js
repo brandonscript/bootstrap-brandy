@@ -12,6 +12,12 @@ var http = require('http'),
     brandAiConfig = require('./config/brandai.json'),
     _ = require('lodash')
 
+// Prototype Extensions
+String.prototype.toTitleCase = function() {
+    return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+};
+
+
 // Helpers
 helpers.extendHandlebars(handlebars)
 
@@ -39,7 +45,8 @@ fileDirectories.forEach(function(dir) {
         return path.extname(file) === '.html'
     }).forEach(function(file) {
         var comp = {
-            title: path.basename(file, '.html'),
+            title: path.basename(file, '.html').replace('-', ' ').toTitleCase(),
+            href: path.basename(file, '.html'),
             type: dir,
             fileName: file,
             content: fs.readFileSync(path.join(markupDirectory, dir, file)),

@@ -41,6 +41,10 @@ module.exports = {
         handlebars.registerHelper('nameToCSS', function(str) {
             return str.toLowerCase().replace(/[^\w]+/g, '-')
         })
+        
+        handlebars.registerHelper('toJSON', function(o) {
+            return JSON.stringify(o)
+        })
 
         handlebars.registerHelper('fontVariantString', function(str) {
             return module.exports.fontVariants.toString(str)

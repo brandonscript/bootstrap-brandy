@@ -46,12 +46,12 @@
             <li role="presentation" class="divider"></li>
             <li role="presentation" class="dropdown-header">Elements</li>
               {{#each elements}}
-                <li><a href="#{{title}}">{{title}}</a></li>
+                <li><a href="#{{href}}">{{title}}</a></li>
               {{/each}}
             <li role="presentation" class="divider"></li>
             <li role="presentation" class="dropdown-header">Patterns</li>
               {{#each patterns}}
-                <li><a href="#{{title}}">{{title}}</a></li>
+                <li><a href="#{{href}}">{{title}}</a></li>
               {{/each}}
             </li>
           </ul>
@@ -68,7 +68,7 @@
     
       <!-- Intro -->
       <div class="row" id="intro">
-        <h2 class="sg-h2">Intro</h2>
+        <h2>Intro</h2>
         {{{components.intro}}}
         {{{components.back-to-top}}}
       </div>
@@ -83,7 +83,7 @@
               <div class="col-md-2">
                 <div class="sg-color-swatch sg-color-{{nameToCSS this.name}}" style="background-color: {{this.value}}">
                   <div class="bottom-align-text">
-                    <span class="sg-color-name">${{nameToCSS this.name}}</span>
+                    <span class="sg-color-name">$color-{{nameToCSS this.name}}</span>
                     <span class="sg-color-code">{{this.value}}</span>
                   </div>
                 </div>                  
@@ -98,7 +98,7 @@
     <!-- Font Families -->
     <div class="col-lg-12 sg-section" id="fonts">
       <div class="sg-display">
-        <h2 class="sg-h2">Font Families</h2>
+        <h2>Font Families</h2>
         {{#each brandAi.fonts}}
           <h4>{{nameToCSS this.name}}</h4>
           {{#each this.variants}}
@@ -116,18 +116,17 @@
     <div class="row">
       <h1 class="page-header">Elements</h1>
       {{#each elements}}
-      <div class="col-md-12 row-spacing" id="{{nameToCSS title}}">
-        <h2 class="sg-h2">{{title}}</h2>
+      <div class="row-spacing" id="{{href}}">
+        <h2>{{title}}</h2>
         {{#if usage}}
           <div class="sg-doc">
             {{{usage}}}
           </div>
         {{/if}}
-        {{{content}}}
-        {{{components.back-to-top}}}
       </div>
-      <div class="col-md-12">
-        <h3 class="sg-h3">Example</h3>
+      <div class="col-md-12 sg-example row-spacing">
+        <div class="sg-example-content">{{{content}}}</div>
+        {{{components.back-to-top}}}
         {{{components.markup-controls}}}
         <pre class="prettyprint"><code class="language-html">{{#if example}}{{example}}{{else}}{{content}}{{/if}}</code></pre>
       </div>
@@ -135,18 +134,18 @@
     </div>
 
     <div class="sg-pattern-styles">
-      <h1 class="sg-h1">Patterns<small> - Design and markup patterns unique to your site.</small></h1>
+      <h1>Patterns<small> - Design and markup patterns unique to your site.</small></h1>
       {{#each patterns}}
       <div class="sg-markup sg-section">
         <div class="sg-display">
-          <h2 class="sg-h2"><a id="sg-{{title}}" class="sg-anchor">{{title}}</a></h2>
+          <h2><a id="sg-{{href}}" class="sg-anchor">{{title}}</a></h2>
           {{#if usage}}
           <div class="sg-doc">
-            <h3 class="sg-h3">Usage</h3>
+            <h3>Usage</h3>
             {{{usage}}}
           </div>
           {{/if}}
-          <h3 class="sg-h3">Example</h3>
+          <h3>Example</h3>
           {{{content}}}
         </div>
         <div class="sg-markup-controls">
