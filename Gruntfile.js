@@ -1,6 +1,20 @@
 module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt)
+    var brandAiConfig = require('./config/brandai.json'),
+        util = require('util'),
+        globalConfig = {
+            scssUrl: util.format("https://assets.brand.ai/%s/%s/_style-params.scss?key=%s", brandAiConfig.org, brandAiConfig.name, brandAiConfig.key),
+        }
+
     grunt.initConfig({
+        globalConfig: globalConfig,
+        // Download external resources
+        curl: {
+            'styles': {
+                src: ['<%= globalConfig.scssUrl %>'],
+                dest: 'scss/external/brandai.scss' // the sass source folder
+            }
+        },
         copy: {
             bootstrap: {
                 expand: true,
@@ -58,5 +72,5 @@ module.exports = function(grunt) {
             }
         },
     })
-    grunt.registerTask('default', ['copy:bootstrap', 'sass', 'express:dev', 'watch'])
+    grunt.registerTask('default', ['curl', 'copy:bootstrap', 'sass', 'express:dev', 'watch'])
 }

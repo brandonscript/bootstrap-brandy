@@ -1,11 +1,7 @@
 /* -------------------------------------------------------------------------
-
- Style Guide Boilerplate Bootstrap Edition v2.0.1
- Repo: https://github.com/kemie/Style-Guide-Boilerplate-Bootstrap-Edition
- Author: Brett Jankord (modified by Kemie Guaida)
- License: MIT
-
+ Imports
 ---------------------------------------------------------------------------- */
+
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 /* -------------------------------------------------------------------------
@@ -22,7 +18,6 @@ span, p {
 
 body {
   font-family: Lato, 'Open Sans', sans-serif;
-  letter-spacing: 0.5px;
 }
 
 code *, pre * {
@@ -36,21 +31,27 @@ code *, pre * {
 ---------------------------------------------------------------------------- */
 
 body { 
-    padding-top: 32px; /* Nav bar compensation */
+    padding-top: 42px; /* Nav bar compensation */
 }
 
-.gutter-32 > [class*='col-'] {
+.sg-gutter > [class*='col-'] {
   padding-right: 16px;
   padding-left: 16px;
   padding-bottom: 32px;
 }
 
-.row-spacing {
+.sg-row-spacing {
   margin-bottom: 30px;
 }
 
-pre {
+.sg-pre {
     border: 1px solid #e1e1e8;
+}
+
+.sg-pre > code {
+  overflow: auto;
+  word-wrap: normal;
+  white-space: pre;
 }
 
 .sg-example {
@@ -63,9 +64,10 @@ pre {
   position: relative;
 }
 
-.sg-example > div.markup {
+.sg-example > div.sg-markup {
   margin-bottom: 15px;
   padding-left: 15px;
+  padding-right: 15px;
 }
 
 div.sg-example:after {
@@ -102,31 +104,22 @@ div.sg-example:after {
 
 /* Headings
 ---------------------------------------------------------------------------- */
-h1, h2, h3 {
+h1.sg-h1, h2.sg-h2, h3.sg-h3 {
   font-weight: normal;
-  padding-bottom: .5em
+  padding-bottom: .2em
 }
 
-h1 {
-  border-bottom: 1px solid #ddd;
-  font-weight: bold;
-  // padding-bottom: .2em;
-  // margin-top: 1em;
-  // margin-bottom: 1.25em;
-  border-bottom-width: 3px;
+h1.sg-h1 {
+  border-bottom: 1px solid #E6E6E6;
+  margin-bottom: 1.5em;
 }
 
-h2 {
-  // margin-bottom: .5em;
-  // padding-bottom: .5em;
-  text-transform: capitalize;
-  // margin-top: 2em;
-  border-bottom-width: 2px;
+h2.sg-h2 {
+  margin-top: 32px;
 }
 
-h3 {
-  // padding-bottom: .25em;
-  border-color: #eee;
+h3.sg-h3 {
+  font-weight: 300;
 }
 
 /* Buttons

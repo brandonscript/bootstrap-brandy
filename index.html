@@ -54,23 +54,23 @@
 
   <!-- Foundation -->
   <div class="container">
-      <h1 class="page-header">Foundation</h1>
+      <h1 class="sg-h1">Foundation</h1>
     
       <!-- Intro -->
       <div id="intro">
-        <h2>Intro</h2>
+        <h2 class="sg-h2">Intro</h2>
         {{{components.intro}}}
         {{{components.back-to-top}}}
       </div>
     
       <!-- Colors -->
       <div id="colors">
-        <h2>Colors</h2>
+        <h2 class="sg-h2">Colors</h2>
         {{#each brandAi.colorSections}}
-          <h4>{{this.name}}</h4>
+          <h3 class="sg-h3">{{this.name}}</h3>
           <div class="row">
             {{#each this.colors}}
-              <div class="col-md-2 row-spacing">
+              <div class="col-md-2 sg-row-spacing">
                 <div class="sg-color-swatch sg-color-{{nameToCSS this.name}}" style="background-color: {{this.value}}">
                   <div class="bottom-align-text">
                     <span class="sg-color-var">$color-{{nameToCSS this.name}}</span>
@@ -86,12 +86,12 @@
 
       <!-- Font Families -->
       <div id="fonts">
-        <h2>Font Families</h2>
+        <h2 class="sg-h2">Font Families</h2>
         {{#each brandAi.fonts}}
-          <h4>{{this.name}}</h4>
+          <h3 class="sg-h3">{{this.name}}</h3>
           <div class="row">
             {{#each this.variants}}
-              <div class="col-md-2 row-spacing">
+              <div class="col-md-2 sg-row-spacing">
                 <div class="sg-font">
                   <span class="sg-font-tile" style="{{fontStyle ../this this}}">Aa</span>
                   <div class="bottom-align-text">
@@ -111,21 +111,21 @@
   <!-- Elements, Patterns, Etc. -->
   {{#each content}}
     <div class="container">
-      <div class="" id="{{href}}">
-        <h1 class="page-header">{{title}}</h1>
+      <div id="{{href}}">
+        <h1 class="sg-h1">{{title}}</h1>
         {{#each this.objects}}
-        <div class="" id="{{href}}">
-          <h2>{{title}}</h2>
+        <div id="{{href}}">
+          <h2 class="sg-h2">{{title}}</h2>
           {{#if usage}}
             <div class="sg-usage">
               {{{usage}}}
             </div>
           {{/if}}
           <div class="sg-example">
-            <div class="markup">{{{content}}}</div>
+            <div class="sg-markup">{{{content}}}</div>
             {{{components.back-to-top}}}
             {{{components.markup-controls}}}
-            <pre class="prettyprint"><code class="language-html"><!-- 
+            <pre class="sg-pre prettyprint"><code class="language-html"><!-- 
              -->{{#if example}}{{example}}{{else}}{{content}}{{/if}}<!-- 
              --></code></pre>
           </div>
