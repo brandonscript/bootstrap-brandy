@@ -106,7 +106,9 @@ div.sg-example:after {
 ---------------------------------------------------------------------------- */
 h1.sg-h1, h2.sg-h2, h3.sg-h3 {
   font-weight: normal;
-  padding-bottom: .2em
+  padding-bottom: .2em;
+  padding-top: 60px;
+  margin-top: -40px;
 }
 
 h1.sg-h1 {
@@ -130,7 +132,15 @@ h3.sg-h3 {
 }
 .sg-btn--top {
   float: right;
+  color: #CCC;
 }
+
+.sg-btn--top:hover {
+  color: #999 !important;
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+
 ul.scroll-menu {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;

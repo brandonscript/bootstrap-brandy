@@ -55,14 +55,13 @@
       <h1 class="sg-h1">Foundation</h1>
     
       <!-- Intro -->
-      <div id="intro">
+      <div id="intro">{{{components.back-to-top}}}
         <h2 class="sg-h2">Intro</h2>
         {{{components.intro}}}
-        {{{components.back-to-top}}}
       </div>
     
       <!-- Colors -->
-      <div id="colors">
+      <div id="colors">{{{components.back-to-top}}}
         <h2 class="sg-h2">Colors</h2>
         {{#each brandAi.colorSections}}
           <h3 class="sg-h3">{{this.name}}</h3>
@@ -79,11 +78,10 @@
             {{/each}}
           </div>
         {{/each}}
-        {{{components.back-to-top}}}
       </div>
 
       <!-- Font Families -->
-      <div id="fonts">
+      <div id="fonts">{{{components.back-to-top}}}
         <h2 class="sg-h2">Font Families</h2>
         {{#each brandAi.fonts}}
           <h3 class="sg-h3">{{this.name}}</h3>
@@ -101,7 +99,6 @@
             {{/each}}
           </div>
         {{/each}}
-        {{{components.back-to-top}}}
       </div>
     </div>
   </div>
@@ -112,7 +109,7 @@
       <div id="{{href}}">
         <h1 class="sg-h1">{{title}}</h1>
         {{#each this.objects}}
-        <div id="{{href}}">
+        <div id="{{href}}">{{{@root.components.back-to-top}}}
           <h2 class="sg-h2">{{title}}</h2>
           {{#if usage}}
             <div class="sg-usage">
@@ -121,7 +118,6 @@
           {{/if}}
           <div class="sg-example">
             <div class="sg-markup">{{{content}}}</div>
-            {{{components.back-to-top}}}
             {{{components.markup-controls}}}
             <pre class="sg-pre prettyprint"><code class="language-html"><!-- 
              -->{{#if example}}{{example}}{{else}}{{content}}{{/if}}<!-- 
