@@ -8,10 +8,7 @@
   <!-- Bootstrap extensions -->
   <link rel="stylesheet" href="css/framework/extensions.css">
 
-  <!-- code highlighting -->
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
-
-  <!-- Style Guide Boilerplate Styles -->
+  <!-- Style Guide scaffolding -->
   <link rel="stylesheet" href="css/framework/scaffolding.css">
 
   <!-- Replace below stylesheet with your own stylesheet -->
@@ -20,7 +17,8 @@
   <link rel="stylesheet" href="{{brandAi.googleFonts}}" media="all">
   <link rel="stylesheet" href="{{brandAi.customFonts}}" media="all">
 
-  <link rel="stylesheet" href="css/syntax-highlighting/prettify-theme.css">
+  <!-- code highlighting -->
+  <link rel="stylesheet" href="css/framework/prettify-theme.css">
 </head>
 
 <body data-spy="scroll" data-target="navbar-default" data-offset="60" onload="prettyPrint()">
@@ -34,14 +32,14 @@
         <li class="dropdown active">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jump to section: <b class="caret"></b></a>
           <ul class="dropdown-menu scroll-menu sg-sect">
-            <li role="presentation" class="dropdown-header">Foundation</li>
+            <li role="presentation" class="dropdown-header sg-dropdown-header">Foundation</li>
               <li><a href="#intro">Intro</a></li>
               <li><a href="#colors">Colors</a></li>
               <li><a href="#fonts">Font Families</a></li>
             </li>
             {{#each content}}
               <li role="presentation" class="divider"></li>
-              <li role="presentation" class="dropdown-header">{{title}}</li>
+              <li role="presentation" class="dropdown-header sg-dropdown-header">{{title}}</li>
                 {{#each objects}}
                   <li><a href="#{{href}}">{{title}}</a></li>
                 {{/each}}
@@ -70,7 +68,7 @@
           <h3 class="sg-h3">{{this.name}}</h3>
           <div class="row">
             {{#each this.colors}}
-              <div class="col-md-2 sg-row-spacing">
+              <div class="col-md-2 sg-row-gutter">
                 <div class="sg-color-swatch sg-color-{{nameToCSS this.name}}" style="background-color: {{this.value}}">
                   <div class="bottom-align-text">
                     <span class="sg-color-var">$color-{{nameToCSS this.name}}</span>
@@ -91,7 +89,7 @@
           <h3 class="sg-h3">{{this.name}}</h3>
           <div class="row">
             {{#each this.variants}}
-              <div class="col-md-2 sg-row-spacing">
+              <div class="col-md-2 sg-row-gutter">
                 <div class="sg-font">
                   <span class="sg-font-tile" style="{{fontStyle ../this this}}">Aa</span>
                   <div class="bottom-align-text">

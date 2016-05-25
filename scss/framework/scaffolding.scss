@@ -34,13 +34,13 @@ body {
     padding-top: 42px; /* Nav bar compensation */
 }
 
-.sg-gutter > [class*='col-'] {
-  padding-right: 16px;
-  padding-left: 16px;
-  padding-bottom: 32px;
-}
+// .row > [class*='col-'] {
+//   padding-right: 16px;
+//   padding-left: 16px;
+//   padding-bottom: 32px;
+// }
 
-.sg-row-spacing {
+.sg-row-gutter {
   margin-bottom: 30px;
 }
 
@@ -141,9 +141,10 @@ ul.scroll-menu {
   width: 100%;
   max-height: 500px;
 }
-.dropdown-header {
+.sg-dropdown-header {
   text-transform: uppercase;
 }
+
 .sg-btn--select {
   position: absolute;
   right: 5px;
@@ -191,18 +192,6 @@ ul.scroll-menu {
   display: none;
 }
 
-/* Sections
----------------------------------------------------------------------------- */
-.sg-section {
-  margin-bottom: 32px;  /* For older browsers */
-  margin-bottom: 3rem;
-  overflow: hidden;
-}
-.sg-anchor {
-  display: block;
-  padding-top: 1em;
-}
-
 /* Colors
 ---------------------------------------------------------------------------- */
 
@@ -237,7 +226,7 @@ ul.scroll-menu {
   display: block;
 }
 
-/* FOnts
+/* Fonts
 ---------------------------------------------------------------------------- */
 
 .sg-font {
