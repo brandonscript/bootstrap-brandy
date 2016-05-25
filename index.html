@@ -21,15 +21,11 @@
   <link rel="stylesheet" href="{{brandAi.customFonts}}" media="all">
 
   <link rel="stylesheet" href="css/syntax-highlighting/prettify-theme.css">
-  <!-- <link rel="stylesheet" href="css/syntax-highlighting/highlightjs.custom.css"> -->
-  <!-- <link rel="stylesheet" href="css/syntax-highlighting/prism.base16-custom.light.css"> -->
-  
-
 </head>
-<body data-spy="scroll" data-target=".navbar-default" data-offset="60" onload="prettyPrint()">
 
+<body data-spy="scroll" data-target="navbar-default" data-offset="60" onload="prettyPrint()">
   <!-- Navigation -->
-  <div id="top" class="sg-header sg-container navbar navbar-default navbar-fixed-top" role="navigation">
+  <div id="top" class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">{{{components.brand}}}</a>
@@ -43,48 +39,42 @@
               <li><a href="#colors">Colors</a></li>
               <li><a href="#fonts">Font Families</a></li>
             </li>
-            <li role="presentation" class="divider"></li>
-            <li role="presentation" class="dropdown-header">Elements</li>
-              {{#each elements}}
-                <li><a href="#{{href}}">{{title}}</a></li>
-              {{/each}}
-            <li role="presentation" class="divider"></li>
-            <li role="presentation" class="dropdown-header">Patterns</li>
-              {{#each patterns}}
-                <li><a href="#{{href}}">{{title}}</a></li>
-              {{/each}}
-            </li>
+            {{#each content}}
+              <li role="presentation" class="divider"></li>
+              <li role="presentation" class="dropdown-header">{{title}}</li>
+                {{#each objects}}
+                  <li><a href="#{{href}}">{{title}}</a></li>
+                {{/each}}
+            {{/each}}
           </ul>
         </li>
       </ul>
     </div>
-
   </div>
 
   <!-- Foundation -->
   <div class="container">
-    <div class="row">
       <h1 class="page-header">Foundation</h1>
     
       <!-- Intro -->
-      <div class="row" id="intro">
+      <div id="intro">
         <h2>Intro</h2>
         {{{components.intro}}}
         {{{components.back-to-top}}}
       </div>
     
       <!-- Colors -->
-      <div class="row" id="colors">
-        <h2 class="sg-h2">Colors</h2>
+      <div id="colors">
+        <h2>Colors</h2>
         {{#each brandAi.colorSections}}
           <h4>{{this.name}}</h4>
-          <div class="row gutter-32">
+          <div class="row">
             {{#each this.colors}}
-              <div class="col-md-2">
+              <div class="col-md-2 row-spacing">
                 <div class="sg-color-swatch sg-color-{{nameToCSS this.name}}" style="background-color: {{this.value}}">
                   <div class="bottom-align-text">
-                    <span class="sg-color-name">$color-{{nameToCSS this.name}}</span>
-                    <span class="sg-color-code">{{this.value}}</span>
+                    <span class="sg-color-var">$color-{{nameToCSS this.name}}</span>
+                    <span class="sg-color-name">{{this.value}}</span>
                   </div>
                 </div>                  
               </div>
@@ -93,88 +83,61 @@
         {{/each}}
         {{{components.back-to-top}}}
       </div>
-    </div> 
 
-    <!-- Font Families -->
-    <div class="col-lg-12 sg-section" id="fonts">
-      <div class="sg-display">
+      <!-- Font Families -->
+      <div id="fonts">
         <h2>Font Families</h2>
         {{#each brandAi.fonts}}
-          <h4>{{nameToCSS this.name}}</h4>
-          {{#each this.variants}}
-            <div class="sg-font sg-font-{{nameToCSS ../this.family}}-{{nameToCSS (fontVariantString this)}}" style="{{fontStyle ../this this}}">{{../this.family}} {{fontVariantString this}}</span></span></div>
-          {{/each}}
+          <h4>{{this.name}}</h4>
+          <div class="row">
+            {{#each this.variants}}
+              <div class="col-md-2 row-spacing">
+                <div class="sg-font">
+                  <span class="sg-font-tile" style="{{fontStyle ../this this}}">Aa</span>
+                  <div class="bottom-align-text">
+                    <span class="sg-font-family">{{../this.family}}</span>
+                    <span class="sg-font-style">{{fontVariantString this}}</span>
+                  </div>
+                </div>
+              </div>
+            {{/each}}
+          </div>
         {{/each}}
         {{{components.back-to-top}}}
       </div>
     </div>
-
   </div>
 
-  <!-- Elements -->
-  <div class="container">
-    <div class="row">
-      <h1 class="page-header">Elements</h1>
-      {{#each elements}}
-      <div class="row-spacing" id="{{href}}">
-        <h2>{{title}}</h2>
-        {{#if usage}}
-          <div class="sg-doc">
-            {{{usage}}}
-          </div>
-        {{/if}}
-      </div>
-      <div class="col-md-12 sg-example row-spacing">
-        <div class="sg-example-content">{{{content}}}</div>
-        {{{components.back-to-top}}}
-        {{{components.markup-controls}}}
-        <pre class="prettyprint"><code class="language-html">{{#if example}}{{example}}{{else}}{{content}}{{/if}}</code></pre>
-      </div>
-      {{/each}}
-    </div>
-
-    <div class="sg-pattern-styles">
-      <h1>Patterns<small> - Design and markup patterns unique to your site.</small></h1>
-      {{#each patterns}}
-      <div class="sg-markup sg-section">
-        <div class="sg-display">
-          <h2><a id="sg-{{href}}" class="sg-anchor">{{title}}</a></h2>
+  <!-- Elements, Patterns, Etc. -->
+  {{#each content}}
+    <div class="container">
+      <div class="" id="{{href}}">
+        <h1 class="page-header">{{title}}</h1>
+        {{#each this.objects}}
+        <div class="" id="{{href}}">
+          <h2>{{title}}</h2>
           {{#if usage}}
-          <div class="sg-doc">
-            <h3>Usage</h3>
-            {{{usage}}}
-          </div>
+            <div class="sg-usage">
+              {{{usage}}}
+            </div>
           {{/if}}
-          <h3>Example</h3>
-          {{{content}}}
+          <div class="sg-example">
+            <div class="markup">{{{content}}}</div>
+            {{{components.back-to-top}}}
+            {{{components.markup-controls}}}
+            <pre class="prettyprint"><code class="language-html"><!-- 
+             -->{{#if example}}{{example}}{{else}}{{content}}{{/if}}<!-- 
+             --></code></pre>
+          </div>
         </div>
-        <div class="sg-markup-controls">
-          {{{components.back-to-top}}} 
-        </div>
-        <div class="sg-source sg-animated">
-          <a class="sg-btn sg-btn--select" href="#">Copy Source</a>
-          <pre class="prettyprint lang-html">
-            <code>
-            {{#if example}}
-              {{example}}
-            {{else}}
-              {{content}}
-            {{/if}}
-            </code>
-          </pre>
-        </div>
+        {{/each}}
       </div>
-      {{/each}}
-    </div><!--/.sg-pattern-styles-->
-  </div><!--/.sg-body-->
+    </div>
+  {{/each}}
 
   <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/scrollspy.min.js"></script>
-  <!-- <script src="js/prism.js"></script> -->
-  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script> -->
-  <!-- <script src="js/highlightjs-line-numbers.min.js"></script> -->
-  <!-- <script>hljs.initHighlightingOnLoad(); hljs.initLineNumbersOnLoad();</script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
 
   <!-- livereload script -->

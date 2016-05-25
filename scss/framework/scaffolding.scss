@@ -34,15 +34,15 @@ code *, pre * {
 /* -------------------------------------------------------------------------
  Layout
 ---------------------------------------------------------------------------- */
+
+body { 
+    padding-top: 32px; /* Nav bar compensation */
+}
+
 .gutter-32 > [class*='col-'] {
   padding-right: 16px;
   padding-left: 16px;
   padding-bottom: 32px;
-}
-
-.container {
-  padding-left:30px;
-  padding-right:30px;
 }
 
 .row-spacing {
@@ -60,10 +60,12 @@ pre {
   -webkit-box-shadow: none;
   box-shadow: none;
   padding-top: 48px;
+  position: relative;
 }
 
-.sg-example-content {
+.sg-example > div.markup {
   margin-bottom: 15px;
+  padding-left: 15px;
 }
 
 div.sg-example:after {
@@ -76,6 +78,11 @@ div.sg-example:after {
   text-transform: uppercase;
   letter-spacing: 1px;
   content: "Example"
+}
+
+.prettyprint {
+    border-radius: 0 0 4px 4px;
+    margin: -1px;
 }
 
 /* -------------------------------------------------------------------------
@@ -97,37 +104,29 @@ div.sg-example:after {
 ---------------------------------------------------------------------------- */
 h1, h2, h3 {
   font-weight: normal;
-  margin-bottom: 1em;
-  margin-top: 0.5em;
+  padding-bottom: .5em
 }
 
 h1 {
   border-bottom: 1px solid #ddd;
   font-weight: bold;
-  padding-bottom: .2em;
-  margin-top: 1em;
-  margin-bottom: 1.25em;
+  // padding-bottom: .2em;
+  // margin-top: 1em;
+  // margin-bottom: 1.25em;
   border-bottom-width: 3px;
 }
 
 h2 {
-  margin-bottom: .5em;
-  padding-bottom: .5em;
+  // margin-bottom: .5em;
+  // padding-bottom: .5em;
   text-transform: capitalize;
-  margin-top: 2em;
+  // margin-top: 2em;
   border-bottom-width: 2px;
 }
 
 h3 {
-  padding-bottom: .25em;
+  // padding-bottom: .25em;
   border-color: #eee;
-}
-
-.sg-about {
-  margin-top: 2em;
-}
-.row > .page-header {
-  padding-top: 2em;
 }
 
 /* Buttons
@@ -218,13 +217,12 @@ ul.scroll-menu {
   display: block;
   float: left;
   height: 160px;
-  // margin: 0 20px 30px 0;
   width: 100%;
   border-radius: 3px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  border: 5px solid #fff;
+  border: 8px solid #fff;
   position: relative;
   box-shadow: 0 0 0 1px #F5F5F5;
 }
@@ -241,13 +239,50 @@ ul.scroll-menu {
   display: inline-block;
 }
 
-.sg-color-name {
+.sg-color-var {
   font-weight: bold;
   display: block;
 }
 
-.sg-color-swatch:hover span {
-  opacity: 1;
+/* FOnts
+---------------------------------------------------------------------------- */
+
+.sg-font {
+  display: block;
+  float: left;
+  height: 160px;
+  width: 100%;
+  border-radius: 3px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 8px solid #fff;
+  position: relative;
+  box-shadow: 0 0 0 1px #F5F5F5;
+}
+
+.sg-font div {
+  background: #fff;
+  bottom: 0;
+  color: #414141;
+  font-size: .8em;
+  padding: 10px 0 5px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+}
+
+.sg-font-tile {
+  font-size: 72px;
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.sg-font-family {
+  font-weight: bold;
+  display: block;
 }
 
 /* Grid

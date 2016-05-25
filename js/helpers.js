@@ -39,7 +39,7 @@ module.exports = {
     },
     extendHandlebars: function(handlebars) {
         handlebars.registerHelper('nameToCSS', function(str) {
-            return str.toLowerCase().replace(/[^\w]+/g, '-')
+            return (str || "").toLowerCase().replace(/[^\w]+/g, '-')
         })
         
         handlebars.registerHelper('toJSON', function(o) {

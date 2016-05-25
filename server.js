@@ -22,7 +22,7 @@ String.prototype.toTitleCase = function() {
 helpers.extendHandlebars(handlebars)
 
 // Load
-var template = {},
+var template = { content: [] },
     baseTemplate = fs.readFileSync('index.html', 'utf8'),
     pageBuilder = handlebars.compile(baseTemplate),
     componentsPath = 'components',
@@ -40,7 +40,7 @@ _.merge(template, {
 })
 
 fileDirectories.forEach(function(dir) {
-    template[dir] = []
+    var content = { objects: [], title: dir.toTitleCase(), href: dir }
     fs.readdirSync(path.join(markupDirectory, dir)).filter(function(file) {
         return path.extname(file) === '.html'
     }).forEach(function(file) {
@@ -53,8 +53,9 @@ fileDirectories.forEach(function(dir) {
             example: helpers.tryLoadFile(path.join(examplesDirectory, dir, file)),
             usage: helpers.tryLoadFile(path.join(usageDirectory, dir, file))
         }
-        template[dir].push(comp)
+        content.objects.push(comp)
     })
+    template.content.push(content)
 })
 
 // Index
