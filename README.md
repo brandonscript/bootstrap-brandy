@@ -52,7 +52,7 @@ To set up your API connection, locate your API key at brand.ai (it's visible in 
 
 ## Contributing
 
-To contirubte, please fork and send a pull request. To ensure sure you don't include any user-created elements in the PR, I'd suggest using the following:
+Please fork and submit a pull request. Ensure sure you don't include any user-created elements in the PR; I'd suggest using the following:
 
 	$ git update-index --assume-unchanged {file}
 	
@@ -65,6 +65,7 @@ By default, you should not include:
 	components/brand.html
 	components/title.html
 	config/brandai.json
+	scss/_theme.scss
 	scss/style.scss
 
 ## Licensing 
