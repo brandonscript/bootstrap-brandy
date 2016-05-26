@@ -4,7 +4,7 @@ $("a[href^='#'].sg-nav-link").on('click', function(e) {
     // animate
     $('html, body').animate({
         scrollTop: $(this.hash).offset().top
-    }, 500, function() {
+    }, 'slow', function() {
 
         // when done, add hash to url
         // (default click behaviour)

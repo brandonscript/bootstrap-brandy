@@ -50,6 +50,7 @@ module.exports = function(grunt) {
                     'css/syntax-highlighting/*.css',
                     'css/fonts/*',
                     'scss/*.scss',
+                    'scss/framework/*.scss',
                     'js/*.js',
                     'images/*'
                 ],

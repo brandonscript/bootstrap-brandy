@@ -2,7 +2,14 @@
  Imports
 ---------------------------------------------------------------------------- */
 
+@import "../_theme.scss";
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+/* -------------------------------------------------------------------------
+ Defaults
+---------------------------------------------------------------------------- */
+
+$transition-default: 0.2s;
 
 /* -------------------------------------------------------------------------
  Fonts
@@ -34,14 +41,12 @@ body {
     padding-top: 42px; /* Nav bar compensation */
 }
 
-// .row > [class*='col-'] {
-//   padding-right: 16px;
-//   padding-left: 16px;
-//   padding-bottom: 32px;
-// }
-
 .sg-row-gutter {
   margin-bottom: 30px;
+}
+
+.sg-col-gutter-md > [class*="col-"] {
+  padding: 0 15px;
 }
 
 .sg-pre {
@@ -134,12 +139,13 @@ h3.sg-h3 {
   float: right;
   color: #CCC;
   margin-top: 66px;
+  transition: all $transition-default ease;
+  -webkit-transition: all $transition-default ease;
 }
 
 .sg-btn--top:hover {
-  color: #999 !important;
+  color: #777 !important;
   text-decoration: none;
-  border-bottom: 1px solid;
 }
 
 ul.scroll-menu {
@@ -235,6 +241,7 @@ ul.scroll-menu {
 .sg-color-var {
   font-weight: bold;
   display: block;
+  margin: 0 -5px; /* For extra wide color variables */
 }
 
 /* Fonts
