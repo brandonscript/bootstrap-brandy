@@ -1,17 +1,12 @@
 module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt)
     var brandAiConfig = require('./config/brandai.json'),
-        util = require('util'),
-        globalConfig = {
-            scssUrl: util.format("https://assets.brand.ai/%s/%s/_style-params.scss?key=%s", brandAiConfig.org, brandAiConfig.name, brandAiConfig.key),
-        }
+        util = require('util')
 
     grunt.initConfig({
-        globalConfig: globalConfig,
-        // Download external resources
         curl: {
-            'styles': {
-                src: ['<%= globalConfig.scssUrl %>'],
+            styles: {
+                src: util.format("https://assets.brand.ai/%s/%s/_style-params.scss?key=%s", brandAiConfig.org, brandAiConfig.name, brandAiConfig.key),
                 dest: 'scss/external/brandai.scss' // the sass source folder
             }
         },
@@ -54,11 +49,11 @@ module.exports = function(grunt) {
                     '**/*.html',
                     'css/syntax-highlighting/*.css',
                     'css/fonts/*',
-                    'scss/**/*.scss',
+                    'scss/*.scss',
                     'js/*.js',
                     'images/*'
                 ],
-                tasks: ['sass', 'express'],
+                tasks: ['curl:styles', 'sass', 'express'],
                 options: {
                     spawn: false
                 }
@@ -72,5 +67,5 @@ module.exports = function(grunt) {
             }
         },
     })
-    grunt.registerTask('default', ['curl', 'copy:bootstrap', 'sass', 'express:dev', 'watch'])
+    grunt.registerTask('default', ['curl:styles', 'copy:bootstrap', 'sass', 'express:dev', 'watch'])
 }

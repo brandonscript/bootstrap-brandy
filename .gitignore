@@ -36,4 +36,4 @@ bower_components
 css/fonts/bootstrap/*
 css/framework/*
 css/style.css
-scss/style.scss
+scss/external/*
