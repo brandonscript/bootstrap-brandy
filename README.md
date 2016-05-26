@@ -1,4 +1,4 @@
-![Header Image](todo)
+![Header Image](http://i.imgur.com/zl9Z47F.png)
 A living Style Guide Toolkit for Bootstrap 3
 ==============================
 
@@ -34,7 +34,7 @@ The boilerplate comes with several out-of-the-box components. Add a new .html fi
 - Elements are kept in `/markup/elements`. 
 - Patterns (custom controls and objects you implement) are kept in `/markup/patterns`.
 
-If you want to change these or add to them, you will need to modify server.js for the time being.
+If you want to change these or add to them, you will need to modify the `fileDirectories` array server.js (for the time being).
 
 ### 7. Custom usage details and documentation
 To add documentation for an element, create a new .html file with the applicable subfolder inside the `/usage` directory.
@@ -49,6 +49,23 @@ To set up your API connection, locate your API key at brand.ai (it's visible in 
 	    "org": "yourOrg",
 	    "name": "yourStyleGuideName"
 	}
+
+## Contributing
+
+To contirubte, please fork and send a pull request. To ensure sure you don't include any user-created elements in the PR, I'd suggest using the following:
+
+	$ git update-index --assume-unchanged {file}
+	
+You can list the force-unchanged files by running:
+
+	$ git ls-files -v | grep '^[[:lower:]]'
+	
+By default, you should not include:
+
+	components/brand.html
+	components/title.html
+	config/brandai.json
+	scss/style.scss
 
 ## Licensing 
 **Bootstrap-based Style Guide** is licensed under the [MIT License](http://en.wikipedia.org/wiki/MIT_License)
