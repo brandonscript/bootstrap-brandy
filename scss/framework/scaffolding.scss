@@ -141,8 +141,7 @@ h3.sg-h3 {
   float: right;
   color: #CCC;
   margin-top: 66px;
-  transition: all $transition-default ease;
-  -webkit-transition: all $transition-default ease;
+  @include transition(0.2s);
 }
 
 .sg-btn--top:hover {
