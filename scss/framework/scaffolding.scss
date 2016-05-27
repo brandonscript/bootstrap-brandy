@@ -6,10 +6,16 @@
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 /* -------------------------------------------------------------------------
- Defaults
+ Mixins
 ---------------------------------------------------------------------------- */
 
-$transition-default: 0.2s;
+@mixin transition($duration) {
+  -webkit-transition: all $duration ease-out;
+     -moz-transition: all $duration ease-out;
+      -ms-transition: all $duration ease-out;
+       -o-transition: all $duration ease-out;
+          transition: all $duration ease-out;
+}
 
 /* -------------------------------------------------------------------------
  Fonts
@@ -96,11 +102,7 @@ div.sg-example:after {
  Utility Classes
 ---------------------------------------------------------------------------- */
 .sg-animated {
-  -webkit-transition: all 0.6s ease-out;
-  -moz-transition: all 0.6s ease-out;
-  -ms-transition: all 0.6s ease-out;
-  -o-transition: all 0.6s ease-out;
-  transition: all 0.6s ease-out;
+  @include transition(0.2s);
 }
 
 /* -------------------------------------------------------------------------
