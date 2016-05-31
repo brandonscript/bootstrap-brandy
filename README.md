@@ -11,9 +11,11 @@ Also note that the name is subject to change once a better (catchier, hipsterier
 
 The easiest way to get started is via [npm](npmjs.com). Currently this project is under heavy development, so you will need to point directly to the git repo when installing.
 
+(If you want to skip this part, just copy `/example` and customize it).
+
 1. Install [Grunt](http://gruntjs.com/), and be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide.
 
-2. Create a new Node.js project folder  (or copy `/example`), then add the project:
+2. Create a new Node.js project folder and install the style guide core:
 
 	```bash
 	$ npm install brandonscript/bootstrap-based-style-guide --save
