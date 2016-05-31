@@ -103,7 +103,7 @@ app.use('/js', express.static('js'))
 
 // Live reload
 app.use(require('connect-livereload')({
-    port: 35729
+    port: config.livereload.port || 35729
 }))
 
 // Error handling
