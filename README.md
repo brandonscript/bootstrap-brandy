@@ -1,72 +1,138 @@
 ![Header Image](http://i.imgur.com/zl9Z47F.png)
-A living Style Guide Toolkit for Bootstrap 3
-==============================
+# A Style Guide Toolkit for Bootstrap 3
 
-A living style guide toolkit for Bootstrap-based projects, built on Bootstrap 3, Node.js and Handlebars.
+A living style guide toolkit for Bootstrap-based projects, built on Bootstrap 3, Node.js and Handlebars, with optional [Brand.ai](brand.ai) integration.
 
 Based on Brett Jankord's [Style Guide Boilerplate](http://brettjankord.com/projects/style-guide-boilerplate/), [Kemie's Bootstrap Fork](https://github.com/kemie/Style-Guide-Boilerplate-Bootstrap-Edition), and [Brad Mason's Node.js implementation](https://github.com/DeadlyBrad42/Style-Guide-Boilerplate-nodejs). I've elected _not_ to retain the forked dependency, in favor of a fresh, clean repo.
 
+Also note that the name is subject to change once a better (catchier, hipsterier, awesomer) name is chosen.
 
-## Getting Started With Bootstrap-based Style Guide
+## Installation
 
-### 1. Download or clone the project
+The easiest way to get started is via [npm](npmjs.com). Currently this project is under heavy development, so you will need to point directly to the git repo when installing.
 
-You can clone, fork, or download the repo directly from GitHub.
+1. Install [Grunt](http://gruntjs.com/), and be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide.
 
-### 2. Set the title of your style guide
+2. Create a new Node.js project folder  (or copy `/example`), then add the project:
 
-Open `/components/title.html` and change the title tag's text.
-
-### 3. Add your own CSS into the style guide
-Define your custom boostrap overrides (and custom styles) in `theme.css`. 
+	    $ npm install brandonscript/bootstrap-based-style-guide --save
     
-### 4. Install Node.js and NPM dependencies
-The project is Node.js based, so you'll need to have [Node.js installed](https://nodejs.org/en/download/), then `$ cd` to the project folder and type `$ npm install` to configure the Node.js dependencies.
+3. Create (or copy) Gruntfile.js in your new project folder:
 
-### 5. Start the server
-This project is designed to use [Grunt](http://gruntjs.com) to live-reload the page each time you make a change to one of its components. Simply run `$ grunt` from the project directory to start the server. If you don't want to use Grunt, you can use [nodemon](http://nodemon.io) to have it continually run but without the live reload, or run it manually by running `$ node server.js`.
+	    module.exports = function(grunt) {
+		    require('load-grunt-tasks')(grunt)
+		    var path = require('path')
+		    grunt.initConfig({
+		        subgrunt: {
+		            styleguide: {
+		                options: {
+		                    npmInstall: true
+		                },
+		                projects: {
+		                    'node_modules/bootstrap-style-guide': ['default', '--assets=' + path.resolve()]
+		                }
+		            }
+		        }
+		    })
+		    grunt.registerTask('default', ['subgrunt:styleguide'])
+		}
+	
+4. Install [npm](npmjs.com) dependencies:
 
-Browse to `http://localhost:8080` once the server is running.
+	    $ npm install
+    
+    
+## Configuration 
 
-### 6. Adding elements and patterns
-The boilerplate comes with several out-of-the-box components. Add a new .html file into one of these directories to have it appear in the style guide:
-
-- Elements are kept in `/markup/elements`. 
-- Patterns (custom controls and objects you implement) are kept in `/markup/patterns`.
-
-If you want to change these or add to them, you will need to modify the `fileDirectories` array server.js (for the time being).
-
-### 7. Custom usage details and documentation
-To add documentation for an element, create a new .html file with the applicable subfolder inside the `/usage` directory.
-
-### 8. Brand.ai integration
-This project is designed to integrate with [Brand.ai](http://brand.ai). If you don't want to use Brand.ai, for the time being, you'll need to fork and remove those components from `server.js` until that feature has been modularized.
-
-To set up your API connection, locate your API key at brand.ai (it's visible in the Connect > JSON section). Update the template `/config/brandai.json` your org, style-guide name, and key:
+Create a new config.json file in the root of your project:
 
 	{
-	    "key": "...",
-	    "org": "yourOrg",
-	    "name": "yourStyleGuideName"
+	    "brandai": {
+	        "enabled": true,
+	        "key": "yourAPIKey",
+	        "name": "yourStyleGuideName",
+	        "org": "yourOrg"
+	    },
+	    "livereload": {
+	        "port": 35729
+	    },
+	    "project": {
+	        "name": "My"
+	    },
+	    "server": {
+	        "port": 8080
+	    }
 	}
+
+## Creating content
+
+All user-configurable content (elements, patterns, etc.) must be added to the `/content` directory as individual .html files. 
+
+Create an applicable .html file for the content you want to add. Each file must named identically in all the folders they're being added to. 
+
+For example, if you want to add a section for buttons, you'll need to add:
+
+- Page-rendered markup: `markup/*/buttons.html`
+- Usage doc: `usage/*/buttons.html` (optional)
+- Copy/paste-friendly code snippets: `examples/*/buttons.html` (optional)
+
+## CSS style customization & Bootstrap theme
+
+- Define your custom boostrap overrides in `_theme.scss`, and optionally import `external/brandai.scss` if you're integrating with Brand.ai.
+- Define your custom CSS styles in `style.scss`.
+    
+
+## Fire it up!
+
+To run the project, simply run:
+
+    $ grunt
+
+(That was easy, right?)
 
 ## Contributing
 
-Please fork and submit a pull request. Ensure sure you don't include any user-created elements in the PR; I'd suggest using the following:
+Please fork and submit a pull request. The project has been designed to keep the core services isolated from any user-configurable content, but please ensure sure you don't include any user-created elements in the PR.
 
-	$ git update-index --assume-unchanged {file}
-	
-You can list the force-unchanged files by running:
+By default, you should not include any of the following:
 
-	$ git ls-files -v | grep '^[[:lower:]]'
-	
-By default, you should not include:
-
-	components/brand.html
-	components/title.html
-	config/brandai.json
 	scss/_theme.scss
 	scss/style.scss
+	content/**/*
+	config.json
+	
+To make developing easier, you may want to clone this project and keep it separate from your user-configurable elements. To do this, edit your project's Gruntfile.js to add a `grunt-contrib-copy` option (which you'll need to install):
+
+	module.exports = function(grunt) {
+	    require('load-grunt-tasks')(grunt)
+	    var path = require('path')
+	    grunt.initConfig({
+	        copy: {
+	            dev: {
+	                expand: true,
+	                cwd: '/path/to/core-project-working-dir',
+	                src: ['index.html', 'package.json', 'Gruntfile.js', 'server.js', 'scss/framework/*.scss'],
+	                dest: path.join(process.cwd(), 'node_modules/bootstrap-style-guide/')
+	            }
+	        },
+	        subgrunt: {
+	            styleguide: {
+	                options: {
+	                    npmInstall: true
+	                },
+	                projects: {
+	                    'node_modules/bootstrap-style-guide': ['default', '--assets=' + path.resolve()]
+	                }
+	            }
+	        }
+	    })
+	    grunt.registerTask('default', ['subgrunt:styleguide'])
+	    grunt.registerTask('dev', ['copy:dev', 'subgrunt:styleguide'])
+	}
+
+Then add the `dev` argument when starting the project:
+
+    $ grunt dev
 
 ## Licensing 
 **Bootstrap-based Style Guide** is licensed under the [MIT License](http://en.wikipedia.org/wiki/MIT_License)

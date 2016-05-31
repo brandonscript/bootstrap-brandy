@@ -1,10 +1,13 @@
 {
-  "name": "Style-Guide-Boilerplate-nodejs",
-  "version": "1.0.0",
-  "description": "A starting point for crafting living style guides.",
+  "name": "bootstrap-style-guide",
+  "version": "0.0.1-alpha.0",
+  "description": "A living style guide for Bootstrap 3 SCSS projects.",
   "main": "server.js",
   "directories": {
-    "doc": "doc"
+    "scss": "scss",
+    "js": "js",
+    "css": "css",
+    "components": "components"
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.6",
@@ -14,6 +17,7 @@
     "htmltidy": "0.0.6",
     "js-beautify": "^1.6.2",
     "lodash": "^4.12.0",
+    "minimalist": "^1.0.0",
     "request": "^2.72.0",
     "rootpath": "^0.1.2",
     "sync-exec": "^0.6.2"
@@ -26,20 +30,21 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-curl": "^2.2.0",
     "grunt-express-server": "^0.5.3",
+    "grunt-if": "^0.1.5",
+    "grunt-subgrunt": "^1.2.0",
     "load-grunt-tasks": "^3.5.0"
   },
   "scripts": {
-    "test": "test",
-    "start": "node server.js"
+    "start": "grunt"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/DeadlyBrad42/Style-Guide-Boilerplate-nodejs.git"
+    "url": "https://github.com/brandonscript/bootstrap-based-style-guide.git"
   },
-  "author": "Acatar",
+  "author": "Brandon Shelley",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DeadlyBrad42/Style-Guide-Boilerplate-nodejs/issues"
+    "url": "https://github.com/brandonscript/bootstrap-based-style-guide/issues"
   },
-  "homepage": "https://github.com/DeadlyBrad42/Style-Guide-Boilerplate-nodejs"
+  "homepage": "https://github.com/brandonscript/bootstrap-based-style-guide"
 }

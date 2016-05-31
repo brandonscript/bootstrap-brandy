@@ -5,16 +5,19 @@ var http = require('http'),
     fs = require('fs'),
     handlebars = require('handlebars'),
     express = require('express'),
+    argv = require('minimist')(process.argv.slice(2)),
     app = express(),
     request = require('request'),
     helpers = require('./js/helpers'),
     path = require('path'),
-    brandAiConfig = require('./config/brandai.json'),
+    config = require(path.join(argv.assets, 'config.json')),
     _ = require('lodash')
 
 // Prototype Extensions
 String.prototype.toTitleCase = function() {
-    return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+    return this.replace(/\w\S*/g, function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
 };
 
 
@@ -22,26 +25,35 @@ String.prototype.toTitleCase = function() {
 helpers.extendHandlebars(handlebars)
 
 // Load
-var template = { content: [] },
+var template = {
+        content: []
+    },
     baseTemplate = fs.readFileSync('index.html', 'utf8'),
     pageBuilder = handlebars.compile(baseTemplate),
-    componentsPath = 'components',
-    markupDirectory = 'markup',
-    examplesDirectory = 'examples',
-    usageDirectory = 'usage',
-    fileDirectories = ['elements', 'patterns']
+    componentsDir = 'components',
+    contentDir = 'content',
+    markupDir = 'markup',
+    examplesDir = 'examples',
+    usageDir = 'usage',
+    fileDirs = ['elements', 'patterns']
 
 _.merge(template, {
-    components: fs.readdirSync(componentsPath).filter(function(file) {
+    config: config
+}, {
+    components: fs.readdirSync(componentsDir).filter(function(file) {
         return path.extname(file) === '.html'
     }).reduce(function(obj, file) {
-        return (obj[path.basename(file, '.html')] = fs.readFileSync(path.join(componentsPath, file)), obj)
+        return (obj[path.basename(file, '.html')] = fs.readFileSync(path.join(componentsDir, file)), obj)
     }, {})
 })
 
-fileDirectories.forEach(function(dir) {
-    var content = { objects: [], title: dir.toTitleCase(), href: dir }
-    fs.readdirSync(path.join(markupDirectory, dir)).filter(function(file) {
+fileDirs.forEach(function(dir) {
+    var content = {
+        objects: [],
+        title: dir.toTitleCase(),
+        href: dir
+    }
+    fs.readdirSync(path.join(contentDir, markupDir, dir)).filter(function(file) {
         return path.extname(file) === '.html'
     }).forEach(function(file) {
         var comp = {
@@ -49,9 +61,9 @@ fileDirectories.forEach(function(dir) {
             href: path.basename(file, '.html'),
             type: dir,
             fileName: file,
-            content: fs.readFileSync(path.join(markupDirectory, dir, file)),
-            example: helpers.tryLoadFile(path.join(examplesDirectory, dir, file)),
-            usage: helpers.tryLoadFile(path.join(usageDirectory, dir, file))
+            content: fs.readFileSync(path.join(contentDir, markupDir, dir, file)),
+            example: helpers.tryLoadFile(path.join(contentDir, examplesDir, dir, file)),
+            usage: helpers.tryLoadFile(path.join(contentDir, usageDir, dir, file))
         }
         content.objects.push(comp)
     })
@@ -60,24 +72,28 @@ fileDirectories.forEach(function(dir) {
 
 // Index
 app.get('/', function(req, res) {
-    request.get({
-        url: util.format("https://api.brand.ai/styleguide/%s/%s?key=%s", brandAiConfig.org, brandAiConfig.name, brandAiConfig.key),
-        json: true
-    }, function(err, response, brandAi) {
-        _.merge(template, {
-            brandAi: _.merge(brandAi.result, {
-                googleFonts: helpers.buildGoogleFontsLink(brandAi.result),
-                customFonts: util.format("https://api.brand.ai/styleguide/%s/%s/custom-fonts.css?key=%s", brandAiConfig.org, brandAiConfig.name, brandAiConfig.key)
+    if (config.brandai.enabled) {
+        request.get({
+            url: util.format("https://api.brand.ai/styleguide/%s/%s?key=%s", config.brandai.org, config.brandai.name, config.brandai.key),
+            json: true
+        }, function(err, response, body) {
+            _.merge(template, {
+                brandai: _.merge(body.result, {
+                    googleFonts: helpers.buildGoogleFontsLink(body.result),
+                    customFonts: util.format("https://api.brand.ai/styleguide/%s/%s/custom-fonts.css?key=%s", config.brandai.org, config.brandai.name, config.brandai.key)
+                })
             })
-        })
-        template.brandAi.colorSections.forEach(function(section) {
-            section.colors.map(function(color) {
-                color.value = helpers.rgbToHex.apply(this, color.value.match(/(\d+)/g))
-                return color
+            template.brandai.colorSections.forEach(function(section) {
+                section.colors.map(function(color) {
+                    color.value = helpers.rgbToHex.apply(this, color.value.match(/(\d+)/g))
+                    return color
+                })
             })
+            res.status(200).send(pageBuilder(template))
         })
+    } else {
         res.status(200).send(pageBuilder(template))
-    })
+    }
 })
 
 // Static files

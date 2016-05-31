@@ -1,0 +1,17 @@
+{
+    "brandai": {
+        "enabled": true,
+        "key": "yourAPIKey",
+        "name": "yourStyleGuideName",
+        "org": "yourOrg"
+    },
+    "livereload": {
+        "port": 35729
+    },
+    "project": {
+        "name": "My"
+    },
+    "server": {
+        "port": 8080
+    }
+}
