@@ -15,54 +15,62 @@ The easiest way to get started is via [npm](npmjs.com). Currently this project i
 
 2. Create a new Node.js project folder  (or copy `/example`), then add the project:
 
-	    $ npm install brandonscript/bootstrap-based-style-guide --save
+	```bash
+	$ npm install brandonscript/bootstrap-based-style-guide --save
+	```
     
 3. Create (or copy) Gruntfile.js in your new project folder:
 
-	    module.exports = function(grunt) {
-		    require('load-grunt-tasks')(grunt)
-		    var path = require('path')
-		    grunt.initConfig({
-		        subgrunt: {
-		            styleguide: {
-		                options: {
-		                    npmInstall: true
-		                },
-		                projects: {
-		                    'node_modules/bootstrap-style-guide': ['default', '--assets=' + path.resolve()]
-		                }
-		            }
-		        }
-		    })
-		    grunt.registerTask('default', ['subgrunt:styleguide'])
-		}
+	```javascript
+    module.exports = function(grunt) {
+	    require('load-grunt-tasks')(grunt)
+	    var path = require('path')
+	    grunt.initConfig({
+	        subgrunt: {
+	            styleguide: {
+	                options: {
+	                    npmInstall: true
+	                },
+	                projects: {
+	                    'node_modules/bootstrap-style-guide': ['default', '--assets=' + path.resolve()]
+	                }
+	            }
+	        }
+	    })
+	    grunt.registerTask('default', ['subgrunt:styleguide'])
+	}
+	```
 	
 4. Install [npm](npmjs.com) dependencies:
 
-	    $ npm install
+```bash
+$ npm install
+```
     
     
 ## Configuration 
 
 Create a new config.json file in the root of your project:
 
-	{
-	    "brandai": {
-	        "enabled": true,
-	        "key": "yourAPIKey",
-	        "name": "yourStyleGuideName",
-	        "org": "yourOrg"
-	    },
-	    "livereload": {
-	        "port": 35729
-	    },
-	    "project": {
-	        "name": "My"
-	    },
-	    "server": {
-	        "port": 8080
-	    }
-	}
+```json
+{
+    "brandai": {
+        "enabled": true,
+        "key": "yourAPIKey",
+        "name": "yourStyleGuideName",
+        "org": "yourOrg"
+    },
+    "livereload": {
+        "port": 35729
+    },
+    "project": {
+        "name": "My"
+    },
+    "server": {
+        "port": 8080
+    }
+}
+```
 
 ## Creating content
 
@@ -86,7 +94,9 @@ For example, if you want to add a section for buttons, you'll need to add:
 
 To run the project, simply run:
 
-    $ grunt
+```bash
+$ grunt
+```
 
 (That was easy, right?)
 
