@@ -67,10 +67,11 @@ module.exports = function(grunt) {
                 livereload: true,
                 debounceDelay: 50
             },
-            express: {
+            userContent: {
                 files: [
                     'content/**/*.html',
-                    'scss/*.scss'
+                    'scss/*.scss',
+                    'config.json'
                 ],
                 tasks: ['curl:brandai', 'sass', 'express'],
                 options: {
@@ -78,21 +79,20 @@ module.exports = function(grunt) {
                     cwd: assets
                 }
             },
-            configFiles: {
+            core: {
                 files: [
                     'defaults.json',
                     'server.js',
-                    'Gruntfile.js',
                     'js/*.js',
                     'Gruntfile.js',
-                    'config.json',
                     'index.html',
                     'css/syntax-highlighting/*.css',
                     'scss/framework/*.scss'
                 ],
                 tasks: ['express'],
                 options: {
-                    spawn: false
+                    spawn: false,
+                    cwd: assets
                 }
             }
         },
