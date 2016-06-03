@@ -13,15 +13,17 @@ The easiest way to get started is via [npm](npmjs.com). Currently this project i
 
 (If you want to skip this part, just copy `/example` and customize it).
 
-1. Install [Grunt](http://gruntjs.com/), and be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide.
+1. Install Node.js version 6.0 or higher.
 
-2. Create a new Node.js project folder and install the style guide core:
+2. Install [Grunt](http://gruntjs.com/), and be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide.
+
+3. Create a new Node.js project folder and install the style guide core:
 
 	```bash
 	$ npm install brandonscript/bootstrap-based-style-guide --save
 	```
     
-3. Create (or copy) Gruntfile.js in your new project folder:
+4. Create (or copy) Gruntfile.js in your new project folder:
 
 	```javascript
     module.exports = function(grunt) {
@@ -43,7 +45,7 @@ The easiest way to get started is via [npm](npmjs.com). Currently this project i
 	}
 	```
 	
-4. Install [npm](npmjs.com) dependencies:
+5. Install [npm](npmjs.com) dependencies:
 
 ```bash
 $ npm install
@@ -145,6 +147,16 @@ To make developing easier, you may want to clone this project and keep it separa
 Then add the `dev` argument when starting the project:
 
     $ grunt dev
+    
+## Troubleshooting
+
+If you try to run the project and don't have sass installed, you might get an error indicating as much.
+
+To install on El Capitan, try:
+
+```
+$ sudo gem install sass -n/usr/local/bin
+```
 
 ## Licensing 
 **Bootstrap-based Style Guide** is licensed under the [MIT License](http://en.wikipedia.org/wiki/MIT_License)
