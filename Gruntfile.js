@@ -73,7 +73,7 @@ module.exports = function(grunt) {
                     'scss/*.scss',
                     'config.json'
                 ],
-                tasks: ['curl:brandai', 'sass', 'express'],
+                tasks: ['curl:brandai', 'copy:userContent', 'sass', 'express'],
                 options: {
                     spawn: false,
                     cwd: assets
