@@ -23,7 +23,7 @@ The easiest way to get started is via [npm](npmjs.com). Currently this project i
 	$ npm install brandonscript/bootstrap-based-style-guide --save
 	```
     
-4. Create (or copy) Gruntfile.js in your new project folder:
+4. Create Gruntfile.js in the root folder of your new project:
 
 	```javascript
     module.exports = function(grunt) {
@@ -45,7 +45,7 @@ The easiest way to get started is via [npm](npmjs.com). Currently this project i
 	}
 	```
 	
-5. Install [npm](npmjs.com) dependencies:
+5. Install [npm](npmjs.com) dependencies in the root folder of your project:
 
 ```bash
 $ npm install
@@ -54,7 +54,7 @@ $ npm install
     
 ## Configuration 
 
-Create a new config.json file in the root of your project:
+Create a new config.json file in the root folder of your project:
 
 ```json
 {
@@ -150,13 +150,18 @@ Then add the `dev` argument when starting the project:
     
 ## Troubleshooting
 
-If you try to run the project and don't have sass installed, you might get an error indicating as much.
+### SASS is not installed
 
-To install on El Capitan, try:
+If you try to run the project and don't have sass installed, you might get an error indicating as much. El Capitan has Ruby restrictions, so try:
 
 ```
 $ sudo gem install sass -n/usr/local/bin
 ```
+Or use NVM, brew, or rubenv to manage a local instance of Ruby.
+
+### Fatal error: Unable to find local grunt
+
+You probably forgot to run `$ npm install` after cloning the project. Check out Installation step 5.
 
 ## Licensing 
 **Bootstrap-based Style Guide** is licensed under the [MIT License](http://en.wikipedia.org/wiki/MIT_License)
