@@ -43,7 +43,6 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     'css/framework/scaffolding.css': 'scss/framework/scaffolding.scss',
-                    'css/framework/extensions.css': 'scss/framework/extensions.scss',
                     'css/framework/prettify-theme.css': 'scss/framework/prettify-theme.scss',
                     'css/style.css': 'scss/style.scss'
                 }
