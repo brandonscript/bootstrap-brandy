@@ -10,7 +10,9 @@ module.exports = function(grunt) {
         if: {
             default: {
                 options: {
-                    test: function() { return config.brandai.enabled }
+                    test: function() {
+                        return config.brandai.enabled
+                    }
                 },
                 ifTrue: ['brandai-on'],
                 ifFalse: ['brandai-off']
@@ -20,6 +22,11 @@ module.exports = function(grunt) {
             brandai: {
                 src: util.format("https://assets.brand.ai/%s/%s/_style-params.scss?key=%s", config.brandai.org, config.brandai.name, config.brandai.key),
                 dest: 'scss/external/brandai.scss' // the sass source folder
+            }
+        },
+        clean: {
+            userContent: {
+                src: ['content']
             }
         },
         copy: {
@@ -61,6 +68,11 @@ module.exports = function(grunt) {
                 }
             }
         },
+        open: {
+            url: {
+                path: 'http://localhost:' + config.server.port
+            }
+        },
         watch: {
             options: {
                 livereload: true,
@@ -72,7 +84,7 @@ module.exports = function(grunt) {
                     'scss/*.scss',
                     'config.json'
                 ],
-                tasks: ['curl:brandai', 'copy:userContent', 'sass', 'express'],
+                tasks: ['curl:brandai', 'clean', 'copy:userContent', 'sass', 'express'],
                 options: {
                     spawn: false,
                     cwd: assets
@@ -96,8 +108,8 @@ module.exports = function(grunt) {
             }
         },
     })
-    grunt.registerTask('brandai-on', ['curl:brandai', 'copy', 'sass', 'express:dev', 'watch'])
-    grunt.registerTask('brandai-off', ['copy', 'sass', 'express:dev', 'watch'])
+    grunt.registerTask('brandai-on', ['curl:brandai', 'clean', 'copy', 'sass', 'express:dev', 'open', 'watch'])
+    grunt.registerTask('brandai-off', ['clean', 'copy', 'sass', 'express:dev', 'open', 'watch'])
     grunt.registerTask('default', ['if'])
-    //'copy', 'sass', 'express:dev', 'watch'
+        //'copy', 'sass', 'express:dev', 'watch'
 }
