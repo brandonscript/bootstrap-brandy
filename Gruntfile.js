@@ -10,9 +10,7 @@ module.exports = function(grunt) {
         if: {
             default: {
                 options: {
-                    test: function() {
-                        return config.brandai.enabled
-                    }
+                    test: function() { return config.brandai.enabled }
                 },
                 ifTrue: ['brandai-on'],
                 ifFalse: ['brandai-off']
@@ -24,16 +22,11 @@ module.exports = function(grunt) {
                 dest: 'scss/external/brandai.scss' // the sass source folder
             }
         },
-        clean: {
-            userContent: {
-                src: ['content']
-            }
-        },
         copy: {
             userContent: {
                 expand: true,
                 cwd: assets,
-                src: ['content/**/*.html', 'scss/*.scss'],
+                src: ['content/**/*.html', 'scss/**/*.scss',],
                 dest: process.cwd()
             },
             bootstrap: {
@@ -68,11 +61,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-        open: {
-            url: {
-                path: 'http://localhost:' + config.server.port
-            }
-        },
         watch: {
             options: {
                 livereload: true,
@@ -81,10 +69,10 @@ module.exports = function(grunt) {
             userContent: {
                 files: [
                     'content/**/*.html',
-                    'scss/*.scss',
+                    'scss/**/*.scss',
                     'config.json'
                 ],
-                tasks: ['curl:brandai', 'clean', 'copy:userContent', 'sass', 'express'],
+                tasks: ['curl:brandai', 'copy:userContent', 'sass', 'express'],
                 options: {
                     spawn: false,
                     cwd: assets
@@ -108,8 +96,7 @@ module.exports = function(grunt) {
             }
         },
     })
-    grunt.registerTask('brandai-on', ['curl:brandai', 'clean', 'copy', 'sass', 'express:dev', 'open', 'watch'])
-    grunt.registerTask('brandai-off', ['clean', 'copy', 'sass', 'express:dev', 'open', 'watch'])
+    grunt.registerTask('brandai-on', ['curl:brandai', 'copy', 'sass', 'express:dev', 'watch'])
+    grunt.registerTask('brandai-off', ['copy', 'sass', 'express:dev', 'watch'])
     grunt.registerTask('default', ['if'])
-        //'copy', 'sass', 'express:dev', 'watch'
 }
