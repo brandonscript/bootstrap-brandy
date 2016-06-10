@@ -10,7 +10,7 @@ Based on Brett Jankord's [Style Guide Boilerplate](http://brettjankord.com/proje
 
 The easiest way to get started is via [npm](npmjs.com). Currently this project is under heavy development, so you will need to point directly to the git repo when installing.
 
-(If you want to skip this part, just copy `/example` and customize it).
+(If you want to skip this part, just copy `/example` and customize it. Make sure you change the dependency in package.json to point to the npm package not the github repo.)
 
 1. Install Node.js version 6.0 or higher.
 
