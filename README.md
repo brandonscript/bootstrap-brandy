@@ -46,9 +46,9 @@ The easiest way to get started is via [npm](npmjs.com). Currently this project i
 	
 5. Install [npm](npmjs.com) dependencies in the root folder of your project:
 
-```bash
-$ npm install
-```
+    ```bash
+    $ npm install
+    ```
     
     
 ## Configuration 
