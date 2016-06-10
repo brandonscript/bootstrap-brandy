@@ -1,7 +1,7 @@
 {
-  "description": "A living style guide for Bootstrap 3 SCSS projects.",
+  "description": "My example style guide, built on bootstrap-brandy.",
   "main": "server.js",
-  "name": "apigee-style-guide",
+  "name": "My Style Guide",
   "version": "0.0.1-alpha.0",
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -11,6 +11,6 @@
     "load-grunt-tasks": "^3.5.0"
   },
   "dependencies": {
-    "bootstrap-style-guide": "brandonscript/bootstrap-based-style-guide"
+    "bootstrap-style-guide": "brandonscript/bootstrap-brandy"
   }
 }
