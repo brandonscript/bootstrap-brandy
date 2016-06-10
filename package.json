@@ -1,7 +1,7 @@
 {
-  "name": "bootstrap-style-guide",
+  "name": "bootstrap-brandy",
   "version": "0.0.1-alpha.0",
-  "description": "A living style guide for Bootstrap 3 SCSS projects.",
+  "description": "A living style guide for Bootstrap 3 SASS projects, built on Node.js, Grunt, and Handlebars.",
   "main": "server.js",
   "directories": {
     "scss": "scss",
@@ -41,12 +41,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/brandonscript/bootstrap-based-style-guide.git"
+    "url": "https://github.com/brandonscript/bootstrap-brandy.git"
   },
   "author": "Brandon Shelley",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/brandonscript/bootstrap-based-style-guide/issues"
+    "url": "https://github.com/brandonscript/bootstrap-brandy/issues"
   },
-  "homepage": "https://github.com/brandonscript/bootstrap-based-style-guide"
+  "homepage": "https://github.com/brandonscript/bootstrap-brandy"
 }
