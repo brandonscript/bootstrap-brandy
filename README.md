@@ -1,11 +1,10 @@
 ![Header Image](http://i.imgur.com/zl9Z47F.png)
-# A Style Guide Toolkit for Bootstrap 3
+# Bootstrap Brandy
+![Logo](http://i.imgur.com/oYSt3KC.png?1) 
 
-A living style guide toolkit for Bootstrap-based projects, built on Bootstrap 3, Node.js and Handlebars, with optional [Brand.ai](brand.ai) integration.
+A living style guide for Bootstrap 3 SASS projects, built on Node.js, Grunt, and Handlebars, with optional [Brand.ai](brand.ai) integration.
 
 Based on Brett Jankord's [Style Guide Boilerplate](http://brettjankord.com/projects/style-guide-boilerplate/), [Kemie's Bootstrap Fork](https://github.com/kemie/Style-Guide-Boilerplate-Bootstrap-Edition), and [Brad Mason's Node.js implementation](https://github.com/DeadlyBrad42/Style-Guide-Boilerplate-nodejs). I've elected _not_ to retain the forked dependency, in favor of a fresh, clean repo.
-
-Also note that the name is subject to change once a better (catchier, hipsterier, awesomer) name is chosen.
 
 ## Installation
 
@@ -20,7 +19,7 @@ The easiest way to get started is via [npm](npmjs.com). Currently this project i
 3. Create a new Node.js project folder and install the style guide core:
 
 	```bash
-	$ npm install brandonscript/bootstrap-based-style-guide --save
+	$ npm install bootstrap-brandy --save
 	```
     
 4. Create Gruntfile.js in the root folder of your new project:
@@ -36,7 +35,7 @@ The easiest way to get started is via [npm](npmjs.com). Currently this project i
 	                    npmInstall: true
 	                },
 	                projects: {
-	                    'node_modules/bootstrap-style-guide': ['default', '--assets=' + path.resolve()]
+	                    'node_modules/bootstrap-brandy': ['default', '--assets=' + path.resolve()]
 	                }
 	            }
 	        }
@@ -112,6 +111,7 @@ By default, you should not include any of the following:
 
 	scss/_theme.scss
 	scss/style.scss
+	scss/**/*
 	content/**/*
 	config.json
 	
@@ -126,7 +126,7 @@ To make developing easier, you may want to clone this project and keep it separa
 	                expand: true,
 	                cwd: '/path/to/core-project-working-dir',
 	                src: ['index.html', 'package.json', 'Gruntfile.js', 'server.js', 'scss/framework/*.scss'],
-	                dest: path.join(process.cwd(), 'node_modules/bootstrap-style-guide/')
+	                dest: path.join(process.cwd(), 'node_modules/bootstrap-brandy/')
 	            }
 	        },
 	        subgrunt: {
@@ -135,7 +135,7 @@ To make developing easier, you may want to clone this project and keep it separa
 	                    npmInstall: true
 	                },
 	                projects: {
-	                    'node_modules/bootstrap-style-guide': ['default', '--assets=' + path.resolve()]
+	                    'node_modules/bootstrap-brandy': ['default', '--assets=' + path.resolve()]
 	                }
 	            }
 	        }
@@ -164,7 +164,7 @@ Or use NVM, brew, or rubenv to manage a local instance of Ruby.
 You probably forgot to run `$ npm install` after cloning the project. Check out Installation step 5.
 
 ## Licensing 
-**Bootstrap-based Style Guide** is licensed under the [MIT License](http://en.wikipedia.org/wiki/MIT_License)
+**Bootstrap Brandy** is licensed under the [MIT License](http://en.wikipedia.org/wiki/MIT_License)
 
 ## Additional Resources
 [Original Style Guide Boilerplate](http://brettjankord.com/projects/style-guide-boilerplate/)
