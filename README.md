@@ -1,8 +1,9 @@
-![Header Image](http://i.imgur.com/zl9Z47F.png)
 # Bootstrap Brandy
 ![Logo](http://i.imgur.com/oYSt3KC.png?1) 
 
 A living style guide for Bootstrap 3 SASS projects, built on Node.js, Grunt, and Handlebars, with optional [Brand.ai](brand.ai) integration.
+
+![Header Image](http://i.imgur.com/zl9Z47F.png)
 
 Based on Brett Jankord's [Style Guide Boilerplate](http://brettjankord.com/projects/style-guide-boilerplate/), [Kemie's Bootstrap Fork](https://github.com/kemie/Style-Guide-Boilerplate-Bootstrap-Edition), and [Brad Mason's Node.js implementation](https://github.com/DeadlyBrad42/Style-Guide-Boilerplate-nodejs). I've elected _not_ to retain the forked dependency, in favor of a fresh, clean repo.
 
