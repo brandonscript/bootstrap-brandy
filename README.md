@@ -9,9 +9,9 @@ Based on Brett Jankord's [Style Guide Boilerplate](http://brettjankord.com/proje
 
 ## Installation
 
-The easiest way to get started is via [npm](npmjs.com). Currently this project is under heavy development, so you will need to point directly to the git repo when installing.
+(If you want to skip this part, just copy `/example` and customize it. Make sure you change the dependency in package.json to point to the npm package `bootstrap-brandy` not the github repo.)
 
-(If you want to skip this part, just copy `/example` and customize it. Make sure you change the dependency in package.json to point to the npm package not the github repo.)
+The easiest way to get started is via [npm](https://www.npmjs.com/package/bootstrap-brandy).
 
 1. Install Node.js version 6.0 or higher.
 
