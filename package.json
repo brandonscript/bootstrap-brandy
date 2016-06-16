@@ -12,7 +12,7 @@
   "dependencies": {
     "bootstrap-sass": "^3.3.6",
     "express": "^4.12.2",
-    "handlebars": "^3.0.0",
+    "handlebars": "^4.0.5",
     "html": "0.0.10",
     "htmltidy": "0.0.6",
     "js-beautify": "^1.6.2",
