@@ -20,7 +20,7 @@ module.exports = function(grunt) {
         },
         clean: {
             userContent: {
-                src: ['content', 'scss']
+                src: ['content', 'css']
             }
         },
         curl: {
@@ -99,9 +99,7 @@ module.exports = function(grunt) {
                     'server.js',
                     'js/*.js',
                     'Gruntfile.js',
-                    'index.html',
-                    'css/syntax-highlighting/*.css',
-                    'scss/framework/*.scss'
+                    'index.html'
                 ],
                 tasks: ['express'],
                 options: {
@@ -111,7 +109,7 @@ module.exports = function(grunt) {
             }
         },
     })
-    grunt.registerTask('brandai-on', ['curl:brandai', 'clean', 'copy', 'sass', 'express:dev', 'open', 'watch'])
+    grunt.registerTask('brandai-on', ['clean', 'curl:brandai', 'copy', 'sass', 'express:dev', 'open', 'watch'])
     grunt.registerTask('brandai-off', ['clean', 'copy', 'sass', 'express:dev', 'open', 'watch'])
     grunt.registerTask('default', ['if'])
 }
