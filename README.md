@@ -1,4 +1,7 @@
 # Bootstrap Brandy
+![NPM-downloads](https://img.shields.io/npm/dm/bootstrap-brandy.svg?maxAge=2592000) ![NPM-version](https://img.shields.io/npm/v/bootstrap-brandy.svg
+)
+
 ![Logo](http://i.imgur.com/oYSt3KC.png?1) 
 
 A living style guide for Bootstrap 3 SASS projects, built on Node.js, Grunt, and Handlebars, with optional [Brand.ai](brand.ai) integration.
