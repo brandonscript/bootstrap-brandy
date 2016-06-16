@@ -118,32 +118,32 @@ By default, you should not include any of the following:
 	
 To make developing easier, you may want to clone this project and keep it separate from your user-configurable elements. To do this, edit your project's Gruntfile.js to add a `grunt-contrib-copy` option (which you'll need to install):
 
-	module.exports = function(grunt) {
-	    require('load-grunt-tasks')(grunt)
-	    var path = require('path')
-	    grunt.initConfig({
-	        copy: {
-	            dev: {
-	                expand: true,
-	                cwd: '/path/to/core-project-working-dir',
-	                src: ['index.html', 'package.json', 'Gruntfile.js', 'server.js', 'scss/framework/*.scss'],
-	                dest: path.join(process.cwd(), 'node_modules/bootstrap-brandy/')
-	            }
-	        },
-	        subgrunt: {
-	            styleguide: {
-	                options: {
-	                    npmInstall: true
-	                },
-	                projects: {
-	                    'node_modules/bootstrap-brandy': ['default', '--assets=' + path.resolve()]
-	                }
-	            }
-	        }
-	    })
-	    grunt.registerTask('default', ['subgrunt:styleguide'])
-	    grunt.registerTask('dev', ['copy:dev', 'subgrunt:styleguide'])
-	}
+    module.exports = function(grunt) {
+        require('load-grunt-tasks')(grunt)
+        var path = require('path')
+        grunt.initConfig({
+            copy: {
+                dev: {
+                    expand: true,
+                    cwd: '/Users/{you}/Development/bootstrap-brandy',
+                    src: ['**/*'],
+                    dest: path.join(process.cwd(), 'node_modules/bootstrap-brandy/')
+                }
+            },
+            subgrunt: {
+                styleguide: {
+                    options: {
+                        npmInstall: false // or true, if you want to always install from git
+                    },
+                    projects: {
+                        'node_modules/bootstrap-brandy': ['default', '--assets=' + path.resolve()]
+                    }
+                }
+            }
+        })
+        grunt.registerTask('default', ['subgrunt:styleguide'])
+        grunt.registerTask('dev', ['copy:dev', 'subgrunt:styleguide'])
+    }
 
 Then add the `dev` argument when starting the project:
 
@@ -168,30 +168,4 @@ You probably forgot to run `$ npm install` after cloning the project. Check out 
 **Bootstrap Brandy** is licensed under the [MIT License](http://en.wikipedia.org/wiki/MIT_License)
 
 ## Additional Resources
-[Original Style Guide Boilerplate](http://brettjankord.com/projects/style-guide-boilerplate/)
-
-[Kemie's Bootstrap Fork](https://github.com/kemie/Style-Guide-Boilerplate-Bootstrap-Edition)
-
-[Brad Mason's Node.js implementation](https://github.com/DeadlyBrad42/Style-Guide-Boilerplate-nodejs)
-
 [Bootstrap documentation](http://getbootstrap.com/css/)
-
-[Front-end Style Guides](http://24ways.org/2011/front-end-style-guides/)
-
-[Creating Style guides](http://alistapart.com/article/creating-style-guides)
-
-[Front-end Style Guide Roundup](https://gimmebar.com/collection/4ecd439c2f0aaad734000022/front-end-styleguides)
-
-[Future-Friendly Style Guides](https://speakerdeck.com/lukebrooker/future-friendly-style-guides)
-
-[HTML KickStart](http://www.99lime.com/elements/)
-
-[Oli.jp Style Guide](http://oli.jp/2011/style-guide/)
-
-[Jeremy Keith's Pattern Primer](http://adactio.com/journal/5028/)
-
-[Starbucks Style Guide](http://www.starbucks.com/static/reference/styleguide/)
-
-
-
-
