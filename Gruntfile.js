@@ -18,15 +18,15 @@ module.exports = function(grunt) {
                 ifFalse: ['brandai-off']
             }
         },
+        clean: {
+            userContent: {
+                src: ['content', 'scss']
+            }
+        },
         curl: {
             brandai: {
                 src: util.format("https://assets.brand.ai/%s/%s/_style-params.scss?key=%s", config.brandai.org, config.brandai.name, config.brandai.key),
                 dest: 'scss/external/brandai.scss' // the sass source folder
-            }
-        },
-        clean: {
-            userContent: {
-                src: ['content', 'scss']
             }
         },
         copy: {
