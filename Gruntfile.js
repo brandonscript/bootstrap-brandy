@@ -35,7 +35,8 @@ module.exports = function(grunt) {
                 cwd: assets,
                 src: [
                     'content/**/*.html',
-                    'scss/**/*.scss'
+                    'scss/**/*.scss',
+                    'js/**/*.js'
                 ],
                 dest: process.cwd()
             },
@@ -44,6 +45,12 @@ module.exports = function(grunt) {
                 flatten: true,
                 src: 'node_modules/bootstrap-sass/assets/fonts/bootstrap/*',
                 dest: 'css/fonts/bootstrap'
+            }
+        },
+        uglify: {
+            js: {
+                src: ['js/**/*.js', '!js/framework/*.js'],
+                dest: 'js/_composite.min.js'
             }
         },
         sass: {
@@ -109,7 +116,7 @@ module.exports = function(grunt) {
             }
         },
     })
-    grunt.registerTask('brandai-on', ['clean', 'curl:brandai', 'copy', 'sass', 'express:dev', 'open', 'watch'])
-    grunt.registerTask('brandai-off', ['clean', 'copy', 'sass', 'express:dev', 'open', 'watch'])
+    grunt.registerTask('brandai-on', ['clean', 'curl:brandai', 'copy', 'uglify', 'sass', 'express:dev', 'open', 'watch'])
+    grunt.registerTask('brandai-off', ['clean', 'copy', 'uglify', 'sass', 'express:dev', 'open', 'watch'])
     grunt.registerTask('default', ['if'])
 }
