@@ -20,7 +20,14 @@ module.exports = function(grunt) {
         },
         clean: {
             userContent: {
-                src: ['content', 'css', 'scss/**/*.scss', '!scss/framework/*', 'js/**/*.js', '!js/framework/*']
+                src: [
+                    'content', 
+                    'css', 
+                    'scss/**/*.scss', 
+                    '!scss/framework/*', 
+                    'js/**/*.js', 
+                    '!js/framework/*'
+                ]
             }
         },
         curl: {
@@ -91,10 +98,11 @@ module.exports = function(grunt) {
             userContent: {
                 files: [
                     'content/**/*.html',
+                    'config.json',
                     'scss/**/*.scss',
-                    'config.json'
+                    'js/**/*.js'
                 ],
-                tasks: ['curl:brandai', 'clean', 'copy:userContent', 'sass', 'express'],
+                tasks: ['clean', 'curl:brandai', 'copy:userContent', 'uglify', 'sass', 'express'],
                 options: {
                     spawn: false,
                     cwd: assets
@@ -104,7 +112,6 @@ module.exports = function(grunt) {
                 files: [
                     'defaults.json',
                     'server.js',
-                    'js/*.js',
                     'Gruntfile.js',
                     'index.html'
                 ],
