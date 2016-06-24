@@ -1,5 +1,5 @@
 # Bootstrap Brandy
-![Codacy](https://img.shields.io/codacy/grade/e27821fb6289410b8f58338c7e0bc686.svg) ![NPM-downloads](https://img.shields.io/npm/dm/bootstrap-brandy.svg?maxAge=2592000) ![NPM-version](https://img.shields.io/npm/v/bootstrap-brandy.svg)
+![Codacy](https://img.shields.io/codacy/grade/df020913faeb47c8a7f352892f32b2e4.svg?maxAge=2592000) ![NPM-downloads](https://img.shields.io/npm/dm/bootstrap-brandy.svg?maxAge=2592000) ![NPM-version](https://img.shields.io/npm/v/bootstrap-brandy.svg)
 
 
 ![Logo](http://i.imgur.com/oYSt3KC.png?1) 
