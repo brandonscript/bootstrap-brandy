@@ -3,7 +3,7 @@ module.exports = function(grunt) {
     var path = require('path')
     grunt.initConfig({
         subgrunt: {
-            styleguide: {
+            brandy: {
                 options: {
                     npmInstall: true
                 },
@@ -13,5 +13,5 @@ module.exports = function(grunt) {
             }
         }
     })
-    grunt.registerTask('default', ['subgrunt:styleguide'])
+    grunt.registerTask('default', ['subgrunt:brandy'])
 }

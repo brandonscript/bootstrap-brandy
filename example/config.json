@@ -9,7 +9,8 @@
         "port": 35729
     },
     "project": {
-        "name": "My"
+        "name": "My",
+        "description": "About my style guide, how you should use it, and why it's awesome!"
     },
     "server": {
         "port": 8080

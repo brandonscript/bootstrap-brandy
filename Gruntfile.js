@@ -10,7 +10,7 @@ module.exports = function(grunt) {
         if: {
             default: {
                 options: {
-                    test: function() {
+                    test() {
                         return config.brandai.enabled
                     }
                 },

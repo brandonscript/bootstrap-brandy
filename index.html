@@ -31,16 +31,15 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jump to a section <b class="caret"></b></a>
             <ul class="dropdown-menu scroll-menu">
               <li role="presentation" class="dropdown-header sg-dropdown-header">Foundation</li>
-                <li><a class='sg-nav-link' href="#intro">Intro</a></li>
                 <li><a class='sg-nav-link' href="#colors">Colors</a></li>
                 <li><a class='sg-nav-link' href="#fonts">Font Families</a></li>
               </li>
               {{#each content}}
                 <li role="presentation" class="divider"></li>
                 <li role="presentation" class="dropdown-header sg-dropdown-header">{{title}}</li>
-                  {{#each objects}}
-                    <li><a class='sg-nav-link' href="#{{href}}">{{title}}</a></li>
-                  {{/each}}
+                {{#each objects}}
+                  <li><a class='sg-nav-link' href="#{{href}}">{{title}}</a></li>
+                {{/each}}
               {{/each}}
             </ul>
           </li>
@@ -53,10 +52,9 @@
   <div class="container">
       <h1 class="sg-h1">Foundation</h1>
     
-      <!-- Intro -->
-      <div id="intro">{{{components.back-to-top}}}
-        <h2 class="sg-h2">Intro</h2>
-        {{{components.intro}}}
+      <!-- Description -->
+      <div id="description">{{{components.back-to-top}}}
+        {{{config.project.description}}}
       </div>
     
       <!-- Colors -->
