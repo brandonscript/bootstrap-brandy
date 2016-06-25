@@ -84,7 +84,9 @@ app.get('/', function(req, res) {
             })
             template.brandai.colorSections.forEach(function(section) {
                 section.colors.map(function(color) {
-                    color.value = helpers.rgbToHex.apply(this, color.value.match(/(\d+)/g))
+                    if (/^rgb/.test(color.value)) {
+                        color.value = helpers.rgbToHex.apply(this, color.value.match(/(\d+)/g))
+                    }
                     return color
                 })
             })
