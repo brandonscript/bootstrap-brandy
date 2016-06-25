@@ -1,0 +1,18 @@
+{
+    "brandai": {
+        "enabled": true,
+        "key": "HJMUZSoS",
+        "name": "style",
+        "org": "bootstrap-brandy"
+    },
+    "livereload": {
+        "port": 35729
+    },
+    "project": {
+        "name": "Bootstrap Brandy",
+        "description": "<blockquote>About my style guide, how you should use it, and why it's awesome!</blockquote>"
+    },
+    "server": {
+        "port": 8080
+    }
+}
