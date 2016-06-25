@@ -33,7 +33,7 @@ The easiest way to get started is via [npm](https://www.npmjs.com/package/bootst
 	    require('load-grunt-tasks')(grunt)
 	    var path = require('path')
 	    grunt.initConfig({
-	        subgrunt: {
+	        brandy: {
 	            styleguide: {
 	                options: {
 	                    npmInstall: true
@@ -44,7 +44,7 @@ The easiest way to get started is via [npm](https://www.npmjs.com/package/bootst
 	            }
 	        }
 	    })
-	    grunt.registerTask('default', ['subgrunt:styleguide'])
+	    grunt.registerTask('default', ['subgrunt:brandy'])
 	}
 	```
 	
@@ -71,7 +71,8 @@ Create a new config.json file in the root folder of your project:
         "port": 35729
     },
     "project": {
-        "name": "My"
+        "name": "My",
+        "description": "<blockquote>About my style guide, how you should use it, and why it's awesome!</blockquote>"
     },
     "server": {
         "port": 8080
