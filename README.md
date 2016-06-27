@@ -117,6 +117,7 @@ By default, you should not include any of the following:
 	scss/_theme.scss
 	scss/style.scss
 	scss/**/*
+    js/**/*
 	content/**/*
 	config.json
 	
@@ -130,7 +131,7 @@ To make developing easier, you may want to clone this project and keep it separa
                 dev: {
                     expand: true,
                     cwd: '/Users/{you}/Development/bootstrap-brandy',
-                    src: ['**/*'],
+                    src: ['scss/**/*', 'js/**/*', 'components/**/*', '*.*'],
                     dest: path.join(process.cwd(), 'node_modules/bootstrap-brandy/')
                 }
             },
