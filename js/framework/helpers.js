@@ -5,7 +5,7 @@ var util = require('util'),
 require('rootpath')()
 
 module.exports = {
-    buildGoogleFontsLink: function(brandAi) {
+    buildGoogleFontsLink(brandAi) {
         var url = "https://fonts.googleapis.com/css?family="
         url += brandAi.fonts.filter(function(font) {
             return font.source === 'google'
@@ -17,19 +17,19 @@ module.exports = {
         return url
     },
     fontVariants: {
-        toString: function(variant) {
+        toString(variant) {
             var style = styleFromCode(variant.split('')[0])
             var weight = weightFromCode(variant.split('')[1])
             return weight + style
         },
-        parse: function(variant) {
+        parse(variant) {
             return {
                 italic: variant.split('')[0] === 'i',
                 weight: parseInt(variant.split('')[1]) * 100
             }
         }
     },
-    tryLoadFile: function(path) {
+    tryLoadFile(path) {
         try {
             var content = fs.readFileSync(path)
             return content
@@ -37,7 +37,7 @@ module.exports = {
             return ""
         }
     },
-    extendHandlebars: function(handlebars) {
+    extendHandlebars(handlebars) {
         handlebars.registerHelper('nameToCSS', function(str) {
             return (str || "").toLowerCase().replace(/[^\w]+/g, '-')
         })
@@ -60,13 +60,13 @@ module.exports = {
         })
     },
     rgbToHex(r, g, b) {
-        return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+        return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b)
     }
 }
 
 function componentToHex(c) {
-    var hex = parseInt(c).toString(16);
-    return hex.length === 1 ? "0" + hex : hex;
+    var hex = parseInt(c).toString(16)
+    return hex.length === 1 ? "0" + hex : hex
 }
 
 function styleFromCode(style) {
