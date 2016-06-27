@@ -12,4 +12,4 @@
             window.location.hash = this.hash
         })
     })
-})(jQuery)
+}(jQuery))
