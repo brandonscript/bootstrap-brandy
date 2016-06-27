@@ -13,13 +13,6 @@ var http = require('http'),
     config = require(path.join(argv.assets, 'config.json')),
     _ = require('lodash')
 
-// Prototype Extensions
-String.prototype.toTitleCase = function() {
-    return this.replace(/\w\S*/g, function(txt) {
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
-    })
-}
-
 // Helpers
 helpers.extendHandlebars(handlebars)
 
@@ -49,14 +42,14 @@ _.merge(template, {
 fileDirs.forEach(function(dir) {
     var content = {
         objects: [],
-        title: dir.toTitleCase(),
+        title: _.capitalize(dir),
         href: dir
     }
     fs.readdirSync(path.join(contentDir, markupDir, dir)).filter(function(file) {
         return path.extname(file) === '.html'
     }).forEach(function(file) {
         var comp = {
-            title: path.basename(file, '.html').replace('-', ' ').toTitleCase(),
+            title: _.capitalize(path.basename(file, '.html').replace('-', ' ')),
             href: path.basename(file, '.html'),
             type: dir,
             fileName: file,
