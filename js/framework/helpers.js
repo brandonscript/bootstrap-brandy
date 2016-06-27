@@ -4,6 +4,28 @@ var util = require('util'),
 
 require('rootpath')()
 
+function componentToHex(c) {
+    var hex = parseInt(c).toString(16)
+    return hex.length === 1 ? "0" + hex : hex
+}
+
+function styleFromCode(style) {
+    return (style === 'i') ? " Italic" : ""
+}
+
+function weightFromCode(weight) {
+    switch (weight) {
+        case '3':
+            return "300 Light"
+        case '4':
+            return "400 Regular"
+        case '7':
+            return "700 Bold"
+        default:
+            return "400 Regular"
+    }
+}
+
 module.exports = {
     buildGoogleFontsLink(brandAi) {
         var url = "https://fonts.googleapis.com/css?family="
@@ -61,27 +83,5 @@ module.exports = {
     },
     rgbToHex(r, g, b) {
         return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b)
-    }
-}
-
-function componentToHex(c) {
-    var hex = parseInt(c).toString(16)
-    return hex.length === 1 ? "0" + hex : hex
-}
-
-function styleFromCode(style) {
-    return (style === 'i') ? " Italic" : ""
-}
-
-function weightFromCode(weight) {
-    switch (weight) {
-        case '3':
-            return "300 Light"
-        case '4':
-            return "400 Regular"
-        case '7':
-            return "700 Bold"
-        default:
-            return "400 Regular"
     }
 }
