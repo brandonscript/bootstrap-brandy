@@ -87,6 +87,8 @@ Create a new config.json file in the root folder of your project:
 }
 ```
 
+Need to include external resources from a CDN in your project? No problem. Use the `external` property properties to include them in your style guide.
+
 ## Creating content
 
 All user-configurable content (elements, patterns, etc.) must be added to the `/content` directory as individual .html files. 
