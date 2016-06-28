@@ -42,14 +42,14 @@ _.merge(template, {
 fileDirs.forEach(function(dir) {
     var content = {
         objects: [],
-        title: _.capitalize(dir),
+        title: _.startCase(dir),
         href: dir
     }
     fs.readdirSync(path.join(contentDir, markupDir, dir)).filter(function(file) {
         return path.extname(file) === '.html'
     }).forEach(function(file) {
         var comp = {
-            title: _.capitalize(path.basename(file, '.html').replace('-', ' ')),
+            title: _.startCase(path.basename(file, '.html').replace('-', ' ')),
             href: path.basename(file, '.html'),
             type: dir,
             fileName: file,
