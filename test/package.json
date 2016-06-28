@@ -2,7 +2,7 @@
   "description": "bootstrap-brandy test",
   "main": "server.js",
   "name": "bootstrap-brandy-test",
-  "version": "0.0.1-alpha.2",
+  "version": "0.0.1-alpha.3",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-check-dependencies": "^0.12.0",
