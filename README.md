@@ -8,8 +8,6 @@ A living style guide for Bootstrap 3 SASS projects, built on Node.js, Grunt, and
 
 ![Header Image](http://i.imgur.com/zl9Z47F.png)
 
-Based on Brett Jankord's [Style Guide Boilerplate](http://brettjankord.com/projects/style-guide-boilerplate/), [Kemie's Bootstrap Fork](https://github.com/kemie/Style-Guide-Boilerplate-Bootstrap-Edition), and [Brad Mason's Node.js implementation](https://github.com/DeadlyBrad42/Style-Guide-Boilerplate-nodejs). I've elected _not_ to retain the forked dependency, in favor of a fresh, clean repo.
-
 ## Installation
 
 (If you want to skip this part, just copy `/example` and customize it. Make sure you change the dependency in package.json to point to the npm package `bootstrap-brandy` not the github repo.)
@@ -76,6 +74,15 @@ Create a new config.json file in the root folder of your project:
     },
     "server": {
         "port": 8080
+    },
+    "external": {
+        "css": [
+            "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+        ],
+        "js": [
+            "https://cdnjs.cloudflare.com/ajax/libs/6px/1.0.3/6px.min.js"
+        ]
+
     }
 }
 ```

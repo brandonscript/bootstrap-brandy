@@ -14,6 +14,10 @@
   <link rel="stylesheet" href="{{brandai.googleFonts}}" media="all">
   <link rel="stylesheet" href="{{brandai.customFonts}}" media="all">
 
+  {{#each config.external.css}}
+    <link rel="stylesheet" href="{{this}}" media="all">
+  {{/each}}
+
   <!-- code highlighting -->
   <link rel="stylesheet" href="css/framework/prettify-theme.css">
 </head>
@@ -130,6 +134,11 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/scrollspy.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
+
+  {{#each config.external.js}}
+    <script src="{{this}}"></script>
+  {{/each}}
+
   <script src="js/framework/scaffolding.js"></script>
   <script src="js/_composite.min.js"></script>
 
