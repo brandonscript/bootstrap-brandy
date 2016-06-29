@@ -119,10 +119,33 @@ For example, if you want to add a section for buttons, you'll need to add:
 - Usage doc: `usage/*/buttons.html` (optional)
 - Copy/paste-friendly code snippets: `examples/*/buttons.html` (optional)
 
-## CSS style customization & Bootstrap theme
+## Customizing bootstrap with CSS/SCSS
 
-- Define your custom boostrap overrides in `_theme.scss`, and optionally import `external/brandai.scss` if you're integrating with Brand.ai.
-- Define your custom CSS styles in `style.scss`.
+There are two controller files for managing SCSS:
+
+- `_theme.scss`: Override [Bootstrap's existing SCSS variables](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss). If you're integrating with Brand.ai, you'll want to import `external/brandai.scss` at the top of this file.
+- `style.scss`: Define custom variables and styles. You can also include external files if you want to break out components, e.g.:
+
+```scss
+@import "_theme.scss";
+
+/* Variables */
+$pressed-darken-amount: 10%;
+$active-darken-amount: 5%;
+
+/* Global Styles */
+body:not(pre):not(code) {
+    letter-spacing: 0.5px;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Elements */
+@import "elements/_buttons.scss";
+@import "elements/_well.scss";
+
+/* Patterns */
+@import "patterns/_forms.scss";
+```
     
 
 ## Fire it up!
