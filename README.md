@@ -87,7 +87,25 @@ Create a new config.json file in the root folder of your project:
 }
 ```
 
-Need to include external resources from a CDN in your project? No problem. Use the `external` property properties to include them in your style guide.
+## Adding external resources
+
+Need to include external resources from a CDN in your project? No problem. Use the `external` property of your config.json to include them in your style guide:
+
+```json
+{
+    ...
+    "external": {
+        "css": [
+            "https://your.cdn.here/file.css"
+        ],
+        "js": [
+            "https://your.cdn.here/file.js"
+        ]
+
+    }
+}
+```
+
 
 ## Creating content
 
@@ -182,4 +200,5 @@ You probably forgot to run `$ npm install` after cloning the project. Check out 
 **Bootstrap Brandy** is licensed under the [MIT License](http://en.wikipedia.org/wiki/MIT_License)
 
 ## Additional Resources
-[Bootstrap documentation](http://getbootstrap.com/css/)
+- [Bootstrap documentation](http://getbootstrap.com/css/)
+- [Grunt.js getting started guide](http://gruntjs.com/getting-started)
