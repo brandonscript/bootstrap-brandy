@@ -124,7 +124,7 @@ For example, if you want to add a section for buttons, you'll need to add:
 There are two controller files for managing SCSS:
 
 - `_theme.scss`: Override [Bootstrap's existing SCSS variables](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss). If you're integrating with Brand.ai, you'll want to import `external/brandai.scss` at the top of this file.
-- `style.scss`: Define custom variables and styles. You can also include external files if you want to break out components, e.g.:
+- `style.scss`: Define custom variables and styles. You can also include external files* if you want to break out components, e.g.:
 
 ```scss
 @import "_theme.scss";
@@ -146,7 +146,8 @@ body:not(pre):not(code) {
 /* Patterns */
 @import "patterns/_forms.scss";
 ```
-    
+
+<sup>_* Make sure you prefix all your external files with an underscore, the standard Sass [partial](http://sass-lang.com/guide) syntax._</sup>
 
 ## Fire it up!
 
