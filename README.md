@@ -205,6 +205,12 @@ Then add the `dev` argument when starting the project:
 
     $ grunt dev
     
+## Updating Bootstrap Brandy
+
+When a new version is released, you'll probably want to check it out. To do that, simply run:
+
+    $ npm update bootstrap-brandy
+    
 ## Troubleshooting
 
 ### SASS is not installed
@@ -219,6 +225,20 @@ Or use NVM, brew, or rubenv to manage a local instance of Ruby.
 ### Fatal error: Unable to find local grunt
 
 You probably forgot to run `$ npm install` after cloning the project. Check out Installation step 5.
+
+### npm ERR! enoent ENOENT: no such file or directory, rename
+
+You might see something like this happen after updating Brandy:
+
+```bash
+npm ERR! enoent ENOENT: no such file or directory, 
+rename '/Users/.../node_modules/bootstrap-brandy/node_modules/.staging/bootstrap-brandy-221efde2' 
+-> '/Users/.../node_modules/bootstrap-brandy'
+```
+
+If this happens, you probably need to run:
+
+    $ npm prune
 
 ## Licensing 
 **Bootstrap Brandy** is licensed under the [MIT License](http://en.wikipedia.org/wiki/MIT_License)
