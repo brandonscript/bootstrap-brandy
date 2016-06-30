@@ -1,7 +1,6 @@
 'use strict'
-var http = require('http'),
-    util = require('util'),
-    exec = require('sync-exec'),
+
+var util = require('util'),
     fs = require('fs'),
     handlebars = require('handlebars'),
     express = require('express'),
