@@ -102,7 +102,7 @@ try {
     }))
 }
 catch (e) {
-    console.info("connect-livereload could not be loaded. You are probably running in server-only mode.");
+    console.info("connect-livereload could not be loaded. You are probably running in server-only mode.")
 }
 
 // Error handling
