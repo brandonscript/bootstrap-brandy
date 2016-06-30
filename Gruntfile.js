@@ -16,6 +16,15 @@ module.exports = function(grunt) {
                 },
                 ifTrue: ['brandai-on'],
                 ifFalse: ['brandai-off']
+            },
+            build: {
+                options: {
+                    test() {
+                        return config.brandai.enabled
+                    }
+                },
+                ifTrue: ['brandai-on-build'],
+                ifFalse: ['brandai-off-build']
             }
         },
         clean: {
@@ -125,5 +134,8 @@ module.exports = function(grunt) {
     })
     grunt.registerTask('brandai-on', ['clean', 'curl:brandai', 'copy', 'uglify', 'sass', 'express:dev', 'open', 'watch'])
     grunt.registerTask('brandai-off', ['clean', 'copy', 'uglify', 'sass', 'express:dev', 'open', 'watch'])
-    grunt.registerTask('default', ['if'])
+    grunt.registerTask('brandai-on-build', ['clean', 'curl:brandai', 'copy', 'uglify', 'sass'])
+    grunt.registerTask('brandai-off-build', ['clean', 'copy', 'uglify', 'sass'])
+    grunt.registerTask('build', ['if:build'])
+    grunt.registerTask('default', ['if:default'])
 }
