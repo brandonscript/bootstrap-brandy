@@ -45,8 +45,35 @@ The easiest way to get started is via [npm](https://www.npmjs.com/package/bootst
 	    grunt.registerTask('default', ['subgrunt:brandy'])
 	}
 	```
+5. Create a `package.json` file in the root folder of your project:
+
+	```json
+	{
+	  "description": "My example style guide, built on bootstrap-brandy.",
+	  "main": "server.js",
+	  "name": "My Style Guide",
+	  "version": "0.0.1",
+	  "devDependencies": {
+	    "grunt": "^0.4.5",
+	    "grunt-auto-install": "^0.3.1",    
+	    "grunt-check-dependencies": "^0.12.0",
+	    "grunt-contrib-copy": "^1.0.0",
+	    "grunt-subgrunt": "^1.2.0",
+	    "load-grunt-tasks": "^3.5.0"
+	  },
+	  "dependencies": {
+	    "bootstrap-brandy": "latest",
+	    "express": "^4.14.0",
+	    "handlebars": "^4.0.5",
+	    "lodash": "^4.13.1",
+	    "minimist": "^1.2.0",
+	    "request": "^2.72.0",
+	    "rootpath": "^0.1.2"
+	  }
+	}
+	```
 	
-5. Install [npm](npmjs.com) dependencies in the root folder of your project:
+6. Install [npm](npmjs.com) dependencies in the root folder of your project:
 
     ```bash
     $ npm install
