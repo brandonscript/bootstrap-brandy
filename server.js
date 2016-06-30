@@ -4,7 +4,7 @@ var util = require('util'),
     fs = require('fs'),
     handlebars = require('handlebars'),
     express = require('express'),
-    argv = require('minimist')(process.argv.slice(2)),
+    minimist = require('minimist'),
     request = require('request'),
     helpers = require('./js/framework/helpers'),
     path = require('path'),
@@ -12,6 +12,7 @@ var util = require('util'),
     _ = require('lodash')
 
 var app = express()
+var argv = minimist(process.argv.slice(2))
 
 // Helpers
 helpers.extendHandlebars(handlebars)
