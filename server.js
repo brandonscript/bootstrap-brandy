@@ -96,9 +96,14 @@ app.use('/css', express.static('css'))
 app.use('/js', express.static('js'))
 
 // Live reload
-app.use(require('connect-livereload')({
-    port: config.livereload.port || 35729
-}))
+try {
+    app.use(require('connect-livereload')({
+        port: config.livereload.port || 35729
+    }))
+}
+catch (e) {
+    console.info("connect-livereload could not be loaded. You are probably running in server-only mode.");
+}
 
 // Error handling
 app.use(function(err, req, res, next) {
