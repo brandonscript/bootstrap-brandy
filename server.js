@@ -5,12 +5,13 @@ var util = require('util'),
     handlebars = require('handlebars'),
     express = require('express'),
     argv = require('minimist')(process.argv.slice(2)),
-    app = express(),
     request = require('request'),
     helpers = require('./js/framework/helpers'),
     path = require('path'),
     config = require(path.join(argv.assets, 'config.json')),
     _ = require('lodash')
+
+var app = express()
 
 // Helpers
 helpers.extendHandlebars(handlebars)
@@ -99,8 +100,7 @@ try {
     app.use(require('connect-livereload')({
         port: config.livereload.port || 35729
     }))
-}
-catch (e) {
+} catch (e) {
     console.info("connect-livereload could not be loaded. You are probably running in server-only mode.")
 }
 
