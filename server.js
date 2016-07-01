@@ -8,11 +8,11 @@ var util = require('util'),
     request = require('request'),
     helpers = require('./js/framework/helpers'),
     path = require('path'),
-    config = require(path.join(argv.assets, 'config.json')),
     _ = require('lodash')
 
 var app = express()
 var argv = minimist(process.argv.slice(2))
+var config = require(path.join(argv.assets, 'config.json'))
 
 // Helpers
 helpers.extendHandlebars(handlebars)
