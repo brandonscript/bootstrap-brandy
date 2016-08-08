@@ -2,8 +2,9 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt)
     
     var util = require('util'),
-        path = require('path'),
-        pkg = grunt.file.readJSON('./package.json'),
+        path = require('path')
+
+    var pkg = grunt.file.readJSON('./package.json'),
         assets = grunt.option('assets'),
         config = grunt.file.readJSON(path.join(assets, 'config.json')) || grunt.file.readJSON('./defaults.json')
 
