@@ -1,9 +1,9 @@
 {
     "brandai": {
         "enabled": true,
-        "key": "yourAPIKey",
-        "name": "yourStyleGuideName",
-        "org": "yourOrg"
+        "key": "HJMUZSoS",
+        "name": "style",
+        "org": "bootstrap-brandy"
     },
     "livereload": {
         "port": 35729
