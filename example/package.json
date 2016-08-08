@@ -1,7 +1,7 @@
 {
   "description": "My example style guide, built on bootstrap-brandy.",
   "main": "server.js",
-  "name": "My Style Guide",
+  "name": "my-style-guide",
   "version": "0.0.1",
   "devDependencies": {
     "grunt": "^0.4.5",
