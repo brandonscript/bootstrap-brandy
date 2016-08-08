@@ -1,7 +1,7 @@
 {
   "name": "bootstrap-brandy",
   "version": "0.0.1-alpha.3",
-  "description": "A living style guide for Bootstrap 3 SASS projects, built on Node.js, Grunt, and Handlebars, with optional Brand.ai integration.",
+  "description": "A living style guide for Bootstrap 3 Sass projects, built on Node.js, Grunt, and Handlebars, with optional Brand.ai integration.",
   "main": "server.js",
   "directories": {
     "scss": "scss",

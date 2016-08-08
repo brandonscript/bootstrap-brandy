@@ -4,7 +4,7 @@
 
 ![Logo](http://i.imgur.com/oYSt3KC.png?1) 
 
-A living style guide for Bootstrap 3 SASS projects, built on Node.js, Grunt, and Handlebars, with optional [Brand.ai](brand.ai) integration.
+A living style guide for Bootstrap 3 Sass projects, built on Node.js, Grunt, and Handlebars, with optional [Brand.ai](brand.ai) integration.
 
 ![Header Image](http://i.imgur.com/zl9Z47F.png)
 
@@ -216,7 +216,7 @@ To make developing easier, you may want to clone this project and keep it separa
             subgrunt: {
                 styleguide: {
                     options: {
-                        npmInstall: false // or true, if you want to always install from git
+                        npmInstall: false // or true, if you want to force dependency installs
                     },
                     projects: {
                         'node_modules/bootstrap-brandy': ['default', '--assets=' + path.resolve()]
@@ -240,9 +240,9 @@ When a new version is released, you'll probably want to check it out. To do that
     
 ## Troubleshooting
 
-### SASS is not installed
+### Sass is not installed
 
-If you try to run the project and don't have sass installed, you might get an error indicating as much. El Capitan has Ruby restrictions, so try:
+If you try to run the project and don't have Sass installed, you might get an error indicating as much. El Capitan has Ruby restrictions, so try:
 
 ```
 $ sudo gem install sass -n/usr/local/bin
