@@ -3,10 +3,9 @@ module.exports = function(grunt) {
     
     var util = require('util'),
         path = require('path'),
-        pkg = require('./package.json')
-
-    var assets = grunt.option('assets'),
-    var config = grunt.file.readJSON(path.join(assets, 'config.json')) || grunt.file.readJSON('./defaults.json')
+        pkg = grunt.file.readJSON('./package.json'),
+        assets = grunt.option('assets'),
+        config = grunt.file.readJSON(path.join(assets, 'config.json')) || grunt.file.readJSON('./defaults.json')
 
     grunt.initConfig({
         if: {
@@ -58,7 +57,7 @@ module.exports = function(grunt) {
                 ],
                 dest: process.cwd()
             },
-            bootstrap: {
+            bootstrapFonts: {
                 expand: true,
                 flatten: true,
                 src: 'node_modules/bootstrap-sass/assets/fonts/bootstrap/*',
