@@ -10,6 +10,7 @@
     "components": "components"
   },
   "dependencies": {
+    "bootstrap-sass": "^3.3.7",
     "express": "^4.14.0",
     "handlebars": "^4.0.5",
     "lodash": "^4.13.1",
